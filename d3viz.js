@@ -4,16 +4,17 @@ let y = d3.scalePoint();
 let x = d3.scalePoint();
 
 let width = 8000;
-let height = 8000;
+let height = 140000;
 
 let svg;
 
-d3.json('dataset_small_parsed.json')
+d3.json('data/dataset_newdata.json')
   .then(function(data) {
 
     x.domain(data.map((d)=> {
+      if (d.description!=""){
       return d.description;
-    }))
+    }}))
     .range([200, width-50]);
 
     y.domain(data.map((d)=> {
@@ -29,8 +30,9 @@ d3.json('dataset_small_parsed.json')
 
     let simulation = d3.forceSimulation(data)
       .force('x', d3.forceX( (d) => {
+        if (d.description!=""){
         return x(d.description)
-      }).strength(0.99))
+      }}).strength(0.99))
       .force('y', d3.forceY( (d) => {
         return y(d.publisher);
       } ).strength(0.99))
