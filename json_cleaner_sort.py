@@ -20,11 +20,23 @@ print (len(data))
 newdata=[]
 
 for item in data:
-    # print (data[i])
+    if 'publisher' in item:
+        if not item['publisher']:
+            continue
+        item['publisher'] = hashsplitter(item['publisher'])
+        # print(item['publisher'])
+        for publisher in item['publisher']:
+            if publisher in counter:
+                counter[publisher] +=1
+            else:
+                counter[publisher] =1
+
+
     if 'description' in item:
         if not item['description']:
             continue
         item['description'] = hashsplitter(item['description'])
+
         newlist=[]
         found=False
         for description in item['description']:
@@ -36,24 +48,19 @@ for item in data:
                 item['description']=newlist
                 newdata.append(item)
 
-# import pdb; pdb.set_trace()
-
-#    if 'free_descriptors' in item:
-#        item['free_descriptors'] = hashsplitter(item['free_descriptors'])
-
-with open('data/dataset_newdata.json', 'w') as f:
-    f.write(json.dumps(newdata))
-
-# print (len(data))
-# print (data[1])
-# print (data[6])
+most_common= [i[0] for i in counter.most_common(100)]
+print(most_common)
+extranewdata=[]
 for item in newdata:
-    for desc in item['description']:
-        if desc not in terms:
-            import pdb; pdb.set_trace()
-            assert False
+    # import pdb; pdb.set_trace()
+    if 'publisher' in item:
+        if not item['publisher']:
+            continue
+        import pdb; pdb.set_trace()
+        if item['publisher'] in most_common:
+            extranewdata.append(item)
 
-    # pprint (item['description'])
-# pprint(counter.most_common(50))
-#pprint([item['free_descriptors'] for item in data])
-#pprint([item['description'] for item in data])
+
+with open('data/dataset_extranewdata.json', 'w') as f:
+    f.write(json.dumps(extranewdata))
+print (len(extranewdata))

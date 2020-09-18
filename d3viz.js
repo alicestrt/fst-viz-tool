@@ -8,7 +8,7 @@ let height = 140000;
 
 let svg;
 
-d3.json('data/dataset_newdata.json')
+d3.json('data/dataset_extranewdata.json')
   .then(function(data) {
 
     x.domain(data.map((d)=> {
