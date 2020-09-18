@@ -20,17 +20,6 @@ print (len(data))
 newdata=[]
 
 for item in data:
-    if 'publisher' in item:
-        if not item['publisher']:
-            continue
-        item['publisher'] = hashsplitter(item['publisher'])
-        # print(item['publisher'])
-        for publisher in item['publisher']:
-            if publisher in counter:
-                counter[publisher] +=1
-            else:
-                counter[publisher] =1
-
 
     if 'description' in item:
         if not item['description']:
@@ -39,8 +28,22 @@ for item in data:
 
         newlist=[]
         found=False
+        publisher_found=False
         for description in item['description']:
             if description in terms:
+                if 'publisher' in item:
+                    if not item['publisher']:
+                        continue
+
+                    if not publisher_found:
+                        publisher=item['publisher']
+                        if publisher in counter:
+                            counter[publisher] +=1
+                            publisher_found=True
+                        else:
+                            counter[publisher] =1
+                            publisher_found=True
+
                 newlist.append(description)
                 found=True
 
@@ -48,7 +51,9 @@ for item in data:
                 item['description']=newlist
                 newdata.append(item)
 
-most_common= [i[0] for i in counter.most_common(100)]
+            publisher_found=False
+
+most_common=[i[0] for i in counter.most_common(10)]
 print(most_common)
 extranewdata=[]
 for item in newdata:
@@ -56,11 +61,13 @@ for item in newdata:
     if 'publisher' in item:
         if not item['publisher']:
             continue
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         if item['publisher'] in most_common:
             extranewdata.append(item)
 
 
 with open('data/dataset_extranewdata.json', 'w') as f:
     f.write(json.dumps(extranewdata))
+print(extranewdata)
+import pdb; pdb.set_trace()
 print (len(extranewdata))
