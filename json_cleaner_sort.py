@@ -28,7 +28,6 @@ for item in data:
         newlist=[]
         found=False
         for description in item['description']:
-
             if description in terms:
                 newlist.append(description)
                 found=True
