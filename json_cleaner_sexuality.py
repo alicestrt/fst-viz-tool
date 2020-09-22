@@ -47,11 +47,11 @@ for item in data:
                 found=True
 
             if found:
+
                 if len(newlist) >=2:
                     item['description_second']=newlist[1]
                 else:
                     item['description']=newlist[0]
-
 
                 # print (newlist[0])
                 newdata.append(item)
