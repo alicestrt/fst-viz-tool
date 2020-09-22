@@ -47,8 +47,12 @@ for item in data:
                 found=True
 
             if found:
-                item['description']=newlist[0]
-                print (newlist[0])
+                if len(newlist) >=2:
+                    item['description_second']=newlist[1]
+                else:
+                    item['description']=newlist[0]
+
+
                 # print (newlist[0])
                 newdata.append(item)
 
@@ -70,6 +74,6 @@ for item in newdata:
 
 with open('data/dataset_sexuality.json', 'w') as f:
     f.write(json.dumps(extranewdata))
-# print(extranewdata)
+print(extranewdata)
 # import pdb; pdb.set_trace()
 print (len(extranewdata))

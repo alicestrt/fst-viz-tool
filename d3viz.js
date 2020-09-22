@@ -23,7 +23,8 @@ d3.json('data/dataset_sexuality.json')
     .range([50, height - 50]);
 
     color.domain(data.map((d)=> {
-      return d.free_descriptors;
+      if (d.description_second!="")
+      return d.description_second;
     }));
 
     console.log(y.domain());
@@ -67,7 +68,7 @@ d3.json('data/dataset_sexuality.json')
     .attr("stroke", "rgba(0,0,0,.2)");
 
     d3.selectAll("rect").on("mouseover", (d) => {
-      console.log(d.free_descriptors + "\n" + d.title)
+      console.log(d.description_second + "\n" + d.title + "\n" + d.author)
     })
 
     function tick(){
