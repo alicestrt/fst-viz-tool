@@ -48,9 +48,13 @@ for item in data:
                 found=True
 
             if found:
-                item['description']=newlist
+                if len(newlist) >=2:
+                    item['description_second']=newlist[1]
+                else:
+                    item['description']=newlist[0]
+                # print (newlist[0])
                 newdata.append(item)
-                
+
 
 
             publisher_found=False
