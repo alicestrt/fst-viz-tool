@@ -3,12 +3,12 @@ let color = d3.scaleOrdinal(d3.schemeSet3);
 let y = d3.scalePoint();
 let x = d3.scalePoint();
 
-let width = 8000;
+let width = 3000;
 let height = 2000;
 
 let svg;
 
-d3.json('data/dataset_extranewdata.json')
+d3.json('data/dataset_sexuality.json')
   .then(function(data) {
 
     x.domain(data.map((d)=> {

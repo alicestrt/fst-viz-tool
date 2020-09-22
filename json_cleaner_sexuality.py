@@ -43,18 +43,20 @@ for item in data:
                         else:
                             counter[publisher] =1
                             publisher_found=True
-
                 newlist.append(description)
                 found=True
 
             if found:
-                item['description']=newlist
+                item['description']=newlist[0]
+                print (newlist[0])
+                # print (newlist[0])
                 newdata.append(item)
+
 
             publisher_found=False
 
-most_common=[i[0] for i in counter.most_common(10)]
-print(most_common)
+most_common=[i[0] for i in counter.most_common(20)]
+# print(most_common)
 extranewdata=[]
 for item in newdata:
     # import pdb; pdb.set_trace()
@@ -68,6 +70,6 @@ for item in newdata:
 
 with open('data/dataset_sexuality.json', 'w') as f:
     f.write(json.dumps(extranewdata))
-print(extranewdata)
-import pdb; pdb.set_trace()
+# print(extranewdata)
+# import pdb; pdb.set_trace()
 print (len(extranewdata))

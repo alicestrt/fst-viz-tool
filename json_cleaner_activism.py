@@ -50,6 +50,8 @@ for item in data:
             if found:
                 item['description']=newlist
                 newdata.append(item)
+                
+
 
             publisher_found=False
 
@@ -69,5 +71,5 @@ for item in newdata:
 with open('data/dataset_activism.json', 'w') as f:
     f.write(json.dumps(extranewdata))
 print(extranewdata)
-import pdb; pdb.set_trace()
+# import pdb; pdb.set_trace()
 print (len(extranewdata))
