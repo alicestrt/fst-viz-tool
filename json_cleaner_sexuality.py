@@ -66,7 +66,7 @@ for item in newdata:
             extranewdata.append(item)
 
 
-with open('data/dataset_extranewdata.json', 'w') as f:
+with open('data/dataset_sexuality.json', 'w') as f:
     f.write(json.dumps(extranewdata))
 print(extranewdata)
 import pdb; pdb.set_trace()
