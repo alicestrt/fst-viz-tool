@@ -3,7 +3,7 @@ let color = d3.scaleOrdinal(d3.schemeSet3);
 let y = d3.scalePoint();
 let x = d3.scalePoint();
 
-let width = 3000;
+let width = 1000;
 let height = 2000;
 
 let svg;

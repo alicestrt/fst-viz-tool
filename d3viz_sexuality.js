@@ -3,7 +3,7 @@ let color = d3.scaleOrdinal(d3.schemeSet3);
 let y = d3.scalePoint();
 let x = d3.scalePoint();
 
-let width = 3000;
+let width = 1500;
 let height = 2000;
 
 let svg;
@@ -37,7 +37,7 @@ d3.json('data/dataset_sexuality.json')
       .force('y', d3.forceY( (d) => {
         return y(d.publisher);
       } ).strength(0.99))
-      .force('collide', d3.forceCollide(5).iterations(32))
+      .force('collide', d3.forceCollide(5).iterations(1))
       .alphaDecay(0)
       .alpha(0.1)
       .on('tick', tick)

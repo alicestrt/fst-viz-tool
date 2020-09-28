@@ -55,8 +55,6 @@ for item in data:
                 # print (newlist[0])
                 newdata.append(item)
 
-
-
             publisher_found=False
 
 most_common=[i[0] for i in counter.most_common(10)]
