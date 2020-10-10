@@ -13,9 +13,10 @@ d3.json('data/dataset_selection.json')
 
     // set x-axis
     x.domain(data.map((d) => {
-      if (d.description != ""){
+      if (d.description != "") {
         return d.description;
-      }}))
+      }
+    }))
       .range([200, width - 50]);
 
     // set y-axis
@@ -25,8 +26,9 @@ d3.json('data/dataset_selection.json')
       .range([50, height - 50]);
 
     color.domain(data.map((d) => {
-      if (d.description_second != "")
-      return d.description_second;
+      if (d.description_second != "") {
+        return d.description_second;
+      }
     }));
 
     console.log(y.domain());
