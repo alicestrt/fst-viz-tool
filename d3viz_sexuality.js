@@ -70,8 +70,20 @@ d3.json('data/dataset_selection.json')
       })
     .attr("stroke", "rgba(0,0,0,.2)");
 
+    // create single tooltip to display when hovering over specific rectangle
+    // <https://chartio.com/resources/tutorials/how-to-show-data-on-mouseover-in-d3js/#creating-a-tooltip-using-mouseover-events>
+    var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .style("background", "#fff")
+        .text("...");
+
+    // display / hide tooltip on mouse hovering
     d3.selectAll("rect").on("mouseover", (d) => {
-      console.log(d.description_second + "\n" + d.title + "\n" + d.author)
+      tooltip.text(`${d.description_second} ${d.title} ${d.author}`);
+      return tooltip.style("visibility", "visible");
     })
       .on("mousemove", () => {
         return tooltip
