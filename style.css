@@ -19,3 +19,7 @@ a {
 ul {
   list-style-type: none;
 }
+
+.x-axis {
+  position: fixed;
+}

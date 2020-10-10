@@ -52,11 +52,15 @@ d3.json('data/dataset_selection.json')
       simulation.alphaDecay(0.1);
     }, 5000);
 
-    svg = d3.select("#fst").append("svg")
+    // -- add new svg to y-axis div (vertical)
+    // use this svg element to add all data (eg rectangles, etc)
+    // this way we keep x-axis above it in a different div, which we can set
+    // to `position: fixed`
+    svgY = d3.select(".y-axis").append("svg")
       .attr("width", width)
       .attr("height", height);
 
-    let item = svg.append("g").attr("class", "canvas");
+    let item = svgY.append("g").attr("class", "canvas");
 
     // create rectangles with data available
     item.selectAll(".canvas")
@@ -102,13 +106,23 @@ d3.json('data/dataset_selection.json')
         .attr('y', function (d) { return d.y })
     };
 
-    svg.append("g")
-      .attr("transform", "translate(0," + 0 + ")")
-      .call(d3.axisBottom(x));
 
-    svg.append("g")
+    // append y-axis to svg (horizontal)
+    svgY.append("g")
       .attr("transform", "translate(0," + 0 + ")")
       .call(d3.axisRight(y));
+
+    // add new svg to x-axis div
+    let svgX = d3.select('.x-axis')
+        .append('svg')
+        .attr('height', 1)
+        .attr("width", width);
+
+    // append x-axis to svg
+    svgX.append("g")
+      .attr("transform", "translate(0," + 0 + ")")
+      .call(d3.axisBottom(x));
+    
   })
   .catch(function(error){
 
