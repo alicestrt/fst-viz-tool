@@ -9,7 +9,7 @@ def hashsplitter(item):
     except Exception:
         import pdb; pdb.set_trace()
 
-with open('data/dataset_selection.json', 'r') as f:
+with open('data/dataset_sexuality.json', 'r') as f:
     data = json.load(f)
 
 counter = Counter()

@@ -8,7 +8,7 @@ let height = 2000;
 
 let svg;
 
-d3.json('data/dataset_selection.json')
+d3.json('data/dataset_sexuality.json')
   .then(function(data) {
 
     // set x-axis
