@@ -3,12 +3,12 @@ let color = d3.scaleOrdinal(d3.schemeSet3);
 let y = d3.scalePoint();
 let x = d3.scalePoint();
 
-let width = 1500;
+let width = 1000;
 let height = 5000;
 
 let svg;
 
-d3.json('data/dataset_sexuality2.json')
+d3.json('data/dataset_race.json')
   .then(function(data) {
 
     x.domain(data.map((d)=> {
@@ -28,7 +28,7 @@ d3.json('data/dataset_sexuality2.json')
     }));
 
     console.log(y.domain());
-//initial simulation, change speed by changing number of iterations
+
     let simulation = d3.forceSimulation(data)
       .force('x', d3.forceX( (d) => {
         if (d.description!=""){
@@ -37,7 +37,7 @@ d3.json('data/dataset_sexuality2.json')
       .force('y', d3.forceY( (d) => {
         return y(d.publisher);
       } ).strength(0.99))
-      .force('collide', d3.forceCollide(5).iterations(1))
+      .force('collide', d3.forceCollide(5).iterations(5))
       .alphaDecay(0)
       .alpha(0.1)
       .on('tick', tick)

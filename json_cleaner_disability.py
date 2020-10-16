@@ -14,7 +14,7 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
-terms=["seksuele_identiteit", "seksuele_oriëntatie", "seksuele_minderheden", "biseksuelen", "homomannen", "lesbische_vrouwen", "LHBTI"]
+terms=["invaliden","blinden","blindheid","lichamelijk_gehandicapten","gehoorproblemen","gehandicaptenstudies"]
 publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
 
 print (len(data))
@@ -44,7 +44,6 @@ for item in data:
                         else:
                             counter[publisher] =1
                             publisher_found=True
-
                 newlist.append(description)
                 found=True
 
@@ -56,10 +55,13 @@ for item in data:
                 # print (newlist[0])
                 newdata.append(item)
 
+
             publisher_found=False
 
 most_common=[i[0] for i in counter.most_common(40)]
-print(most_common)
+# print(most_common)
+print(([x for x in counter.most_common(40)]))
+
 extranewdata=[]
 for item in newdata:
     # import pdb; pdb.set_trace()
@@ -71,7 +73,7 @@ for item in newdata:
             extranewdata.append(item)
 
 
-with open('data/dataset_sexuality2.json', 'w') as f:
+with open('data/dataset_disability.json', 'w') as f:
     f.write(json.dumps(extranewdata))
 print(extranewdata)
 # import pdb; pdb.set_trace()

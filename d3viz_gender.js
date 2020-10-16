@@ -4,11 +4,11 @@ let y = d3.scalePoint();
 let x = d3.scalePoint();
 
 let width = 1000;
-let height = 2000;
+let height = 5000;
 
 let svg;
 
-d3.json('data/dataset_gender-identity.json')
+d3.json('data/dataset_gender.json')
   .then(function(data) {
 
     x.domain(data.map((d)=> {
@@ -37,7 +37,7 @@ d3.json('data/dataset_gender-identity.json')
       .force('y', d3.forceY( (d) => {
         return y(d.publisher);
       } ).strength(0.99))
-      .force('collide', d3.forceCollide(5).iterations(32))
+      .force('collide', d3.forceCollide(5).iterations(5))
       .alphaDecay(0)
       .alpha(0.1)
       .on('tick', tick)

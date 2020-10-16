@@ -14,7 +14,8 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
-terms=["genderidentiteit", "transgenderisme", "transgenders", "vrouwen", "jongeren"]
+terms=["gender", "genderidentiteit", "genderisme", "genderminderheden", "vrouwen", "mannen", "transgenders", "gender_non_binariteit", "genderdiversiteit", "genderrelaties", "genderstudies", "interseks"]
+publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
 
 print (len(data))
 newdata=[]
@@ -31,7 +32,7 @@ for item in data:
         publisher_found=False
         for description in item['description']:
             if description in terms:
-                if 'publisher' in item:
+                if 'publisher' in item and item['publisher'] not in publisher_cleaner:
                     if not item['publisher']:
                         continue
 
@@ -57,7 +58,9 @@ for item in data:
 
             publisher_found=False
 
-most_common=[i[0] for i in counter.most_common(10)]
+most_common=[i[0] for i in counter.most_common(40)]
+print(len([x for x in counter.most_common(40)]))
+
 print(most_common)
 extranewdata=[]
 for item in newdata:
@@ -70,7 +73,7 @@ for item in newdata:
             extranewdata.append(item)
 
 
-with open('data/dataset_gender-identity.json', 'w') as f:
+with open('data/dataset_gender.json', 'w') as f:
     f.write(json.dumps(extranewdata))
 print(extranewdata)
 # import pdb; pdb.set_trace()

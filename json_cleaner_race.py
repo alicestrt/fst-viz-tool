@@ -14,7 +14,8 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
-terms=["seksuele_identiteit", "seksuele_oriëntatie", "seksuele_minderheden", "biseksuelen", "homomannen", "lesbische_vrouwen", "LHBTI"]
+terms=["culturen","etnische_groepen","zwarten","niet-witte mensen","inheemse_volken","witte mensen","migranten","vluchtelingen","etnische_studies", "institutionele_segregatie","kolonialisme", "racisme", "interculturele_relaties"]
+
 publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
 
 print (len(data))
@@ -44,7 +45,6 @@ for item in data:
                         else:
                             counter[publisher] =1
                             publisher_found=True
-
                 newlist.append(description)
                 found=True
 
@@ -56,10 +56,12 @@ for item in data:
                 # print (newlist[0])
                 newdata.append(item)
 
+
             publisher_found=False
 
 most_common=[i[0] for i in counter.most_common(40)]
-print(most_common)
+
+# print(most_common)
 extranewdata=[]
 for item in newdata:
     # import pdb; pdb.set_trace()
@@ -71,8 +73,10 @@ for item in newdata:
             extranewdata.append(item)
 
 
-with open('data/dataset_sexuality2.json', 'w') as f:
+with open('data/dataset_race.json', 'w') as f:
     f.write(json.dumps(extranewdata))
 print(extranewdata)
+print(([x for x in counter.most_common(40)]))
+
 # import pdb; pdb.set_trace()
 print (len(extranewdata))
