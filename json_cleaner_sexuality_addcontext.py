@@ -14,23 +14,27 @@ with open('data/dataset_sexuality.json', 'r') as f:
 
 counter = Counter()
 
-terms=["homomannen","lesbische_vrouwen","coming_out","sexsuele_orientatie","lhbt","homoparen","homojongens","bisexualiteit"]
+# terms=[{"homomannen":"other"},"lesbische_vrouwen","coming_out","sexsuele_orientatie","lhbt","homoparen","homojongens","bisexualiteit"]
+terms={"homomannen":["other","otherother"],"lesbische_vrouwen":"something"}
+# print(terms["homomannen"])
+# for some reason it prints in reverse
 
-print (len(data))
+# print (len(data))
 newdata=[]
 
 for item in data:
-
     if 'description' in item:
         if not item['description']:
             continue
         item['description'] = hashsplitter(item['description'])
 
         newlist=[]
+        # length=len(item['description'])
         found=False
         publisher_found=False
         for description in item['description']:
-            if description in terms:
+            if description in terms.keys():
+                i=0
                 if 'publisher' in item:
                     if not item['publisher']:
                         continue
@@ -43,7 +47,11 @@ for item in data:
                         else:
                             counter[publisher] =1
                             publisher_found=True
+                # print (terms[description])
                 newlist.append(description)
+                # print (newlist)
+                newlist[i][description][0]=terms[description]
+                i=i+1
                 found=True
 
             if found:
@@ -53,7 +61,6 @@ for item in data:
                     item['description']=newlist[0]
                 # print (newlist[0])
                 newdata.append(item)
-
 
             publisher_found=False
 
@@ -72,6 +79,6 @@ for item in newdata:
 
 with open('data/dataset_sexuality.json', 'w') as f:
     f.write(json.dumps(extranewdata))
-print(extranewdata)
+# print(extranewdata)
 # import pdb; pdb.set_trace()
 print (len(extranewdata))

@@ -84,6 +84,8 @@ d3.json('data/dataset_sexuality.json')
         .style("z-index", "10")
         .style("visibility", "hidden")
         .style("background", "#fff")
+        .style("width", "20rem")
+        .attr("data-html", "true")
         .text("...");
 
     // display / hide tooltip on mouse hovering
@@ -115,14 +117,14 @@ d3.json('data/dataset_sexuality.json')
     // add new svg to x-axis div
     let svgX = d3.select('.x-axis')
         .append('svg')
-        .attr('height', 1)
+        .attr('height', 40)
         .attr("width", width);
 
     // append x-axis to svg
     svgX.append("g")
       .attr("transform", "translate(0," + 0 + ")")
       .call(d3.axisBottom(x));
-    
+
   })
   .catch(function(error){
 
