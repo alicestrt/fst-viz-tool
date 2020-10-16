@@ -28,7 +28,7 @@ d3.json('data/dataset_sexuality2.json')
     }));
 
     console.log(y.domain());
-//initial simulation, change speed by changing number of iterations
+
     let simulation = d3.forceSimulation(data)
       .force('x', d3.forceX( (d) => {
         if (d.description!=""){
@@ -67,21 +67,18 @@ d3.json('data/dataset_sexuality2.json')
     )
     .attr("stroke", "rgba(0,0,0,.2)");
 
-    // create single tooltip to display when hovering over specific rectangle
-    // <https://chartio.com/resources/tutorials/how-to-show-data-on-mouseover-in-d3js/#creating-a-tooltip-using-mouseover-events>
     var tooltip = d3.select("body")
         .append("div")
         .style("position", "absolute")
         .style("z-index", "10")
         .style("visibility", "hidden")
         .style("background", "#fff")
-        .style("width", "20rem")
-        .attr("data-html", "true")
         .text("...");
 
     // display / hide tooltip on mouse hovering
     d3.selectAll("rect").on("mouseover", (d) => {
-      console.log(d.description_second + "\n" + d.title + "\n" + d.author)
+      tooltip.text(`${d.description_second} ${d.title} ${d.author}`);
+      return tooltip.style("visibility", "visible");
     })
       .on("mousemove", () => {
         return tooltip
@@ -92,29 +89,22 @@ d3.json('data/dataset_sexuality2.json')
         return tooltip.style("visibility", "hidden");
       });
 
-    function tick () {
-      d3.selectAll('rect')
-        .attr('x', function (d) { return d.x })
-        .attr('y', function (d) { return d.y })
-    };
 
+    function tick(){
 
-    // append y-axis to svg (horizontal)
-    svgY.append("g")
-      .attr("transform", "translate(0," + 0 + ")")
-      .call(d3.axisRight(y));
+        d3.selectAll('rect')
+        .attr('x', function(d){return d.x})
+        .attr('y', function(d){return d.y})
 
-    // add new svg to x-axis div
-    let svgX = d3.select('.x-axis')
-        .append('svg')
-        .attr('height', 40)
-        .attr("width", width);
+      };
 
-    // append x-axis to svg
-    svgX.append("g")
-      .attr("transform", "translate(0," + 0 + ")")
-      .call(d3.axisBottom(x));
+      svg.append("g")
+        .attr("transform", "translate(0," + 0 + ")")
+        .call(d3.axisBottom(x));
 
+      svg.append("g")
+        .attr("transform", "translate(0," + 0 + ")")
+        .call(d3.axisRight(y));
   })
   .catch(function(error){
 

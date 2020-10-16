@@ -67,9 +67,28 @@ d3.json('data/dataset_race.json')
     )
     .attr("stroke", "rgba(0,0,0,.2)");
 
+    var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .style("background", "#fff")
+        .text("...");
+
+    // display / hide tooltip on mouse hovering
     d3.selectAll("rect").on("mouseover", (d) => {
-      console.log(d.description_second + "\n" + d.title + "\n" + d.author)
+      tooltip.text(`${d.description_second} ${d.title} ${d.author}`);
+      return tooltip.style("visibility", "visible");
     })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+
 
     function tick(){
 
