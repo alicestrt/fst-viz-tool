@@ -14,38 +14,25 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
-<<<<<<< HEAD:json_cleaner_sexuality_addcontext.py
-# terms=[{"homomannen":"other"},"lesbische_vrouwen","coming_out","sexsuele_orientatie","lhbt","homoparen","homojongens","bisexualiteit"]
-terms={"homomannen":["other","otherother"],"lesbische_vrouwen":"something"}
-# print(terms["homomannen"])
-# for some reason it prints in reverse
-=======
-terms=["seksuele_identiteit", "seksuele_oriëntatie", "seksuele_minderheden", "biseksuelen", "homomannen", "lesbische_vrouwen", "LHBTI"]
+terms=["invaliden","blinden","blindheid","lichamelijk_gehandicapten","gehoorproblemen","gehandicaptenstudies"]
 publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
->>>>>>> 022cdf1e514acb9b2f2923f55fd22a2c17486d36:json_cleaner_sexuality.py
 
-# print (len(data))
+print (len(data))
 newdata=[]
 
 for item in data:
+
     if 'description' in item:
         if not item['description']:
             continue
         item['description'] = hashsplitter(item['description'])
 
         newlist=[]
-        # length=len(item['description'])
         found=False
         publisher_found=False
         for description in item['description']:
-<<<<<<< HEAD:json_cleaner_sexuality_addcontext.py
-            if description in terms.keys():
-                i=0
-                if 'publisher' in item:
-=======
             if description in terms:
                 if 'publisher' in item and item['publisher'] not in publisher_cleaner:
->>>>>>> 022cdf1e514acb9b2f2923f55fd22a2c17486d36:json_cleaner_sexuality.py
                     if not item['publisher']:
                         continue
 
@@ -57,15 +44,7 @@ for item in data:
                         else:
                             counter[publisher] =1
                             publisher_found=True
-<<<<<<< HEAD:json_cleaner_sexuality_addcontext.py
-                # print (terms[description])
-=======
-
->>>>>>> 022cdf1e514acb9b2f2923f55fd22a2c17486d36:json_cleaner_sexuality.py
                 newlist.append(description)
-                # print (newlist)
-                newlist[i][description][0]=terms[description]
-                i=i+1
                 found=True
 
             if found:
@@ -76,10 +55,13 @@ for item in data:
                 # print (newlist[0])
                 newdata.append(item)
 
+
             publisher_found=False
 
 most_common=[i[0] for i in counter.most_common(40)]
-print(most_common)
+# print(most_common)
+print(([x for x in counter.most_common(40)]))
+
 extranewdata=[]
 for item in newdata:
     # import pdb; pdb.set_trace()
@@ -91,8 +73,8 @@ for item in newdata:
             extranewdata.append(item)
 
 
-with open('data/dataset_sexuality2.json', 'w') as f:
+with open('data/dataset_disability.json', 'w') as f:
     f.write(json.dumps(extranewdata))
-# print(extranewdata)
+print(extranewdata)
 # import pdb; pdb.set_trace()
 print (len(extranewdata))

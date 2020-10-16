@@ -4,76 +4,67 @@ let y = d3.scalePoint();
 let x = d3.scalePoint();
 
 let width = 1500;
-let height = 2000;
+let height = 5000;
 
 let svg;
 
-d3.json('data/dataset_sexuality.json')
+d3.json('data/dataset_sexuality2.json')
   .then(function(data) {
 
-    // set x-axis
-    x.domain(data.map((d) => {
-      if (d.description != "") {
-        return d.description;
-      }
-    }))
-      .range([200, width - 50]);
+    x.domain(data.map((d)=> {
+      if (d.description!=""){
+      return d.description;
+    }}))
+    .range([200, width-50]);
 
-    // set y-axis
-    y.domain(data.map((d) => {
+    y.domain(data.map((d)=> {
       return d.publisher;
     }))
-      .range([50, height - 50]);
+    .range([50, height - 50]);
 
-    color.domain(data.map((d) => {
-      if (d.description_second != "") {
-        return d.description_second;
-      }
+    color.domain(data.map((d)=> {
+      if (d.description_second!="")
+      return d.description_second;
     }));
 
     console.log(y.domain());
-
+//initial simulation, change speed by changing number of iterations
     let simulation = d3.forceSimulation(data)
-        .force('x', d3.forceX((d) => {
-          if (d.description != ""){
-            return x(d.description)
-          }}).strength(0.99))
-        .force('y', d3.forceY((d) => {
-          return y(d.publisher);
-        } ).strength(0.99))
-        .force('collide', d3.forceCollide(5).iterations(1))
-        .alphaDecay(0)
-        .alpha(0.1)
-        .on('tick', tick)
+      .force('x', d3.forceX( (d) => {
+        if (d.description!=""){
+        return x(d.description)
+      }}).strength(0.99))
+      .force('y', d3.forceY( (d) => {
+        return y(d.publisher);
+      } ).strength(0.99))
+      .force('collide', d3.forceCollide(5).iterations(1))
+      .alphaDecay(0)
+      .alpha(0.1)
+      .on('tick', tick)
 
-    let init_decay;
-    init_decay = setTimeout(function(){
-      console.log('init alpha decay')
-      simulation.alphaDecay(0.1);
-    }, 5000);
+      let init_decay;
+      init_decay = setTimeout(function(){
+        console.log('init alpha decay')
+        simulation.alphaDecay(0.1);
+      }, 5000);
 
-    // -- add new svg to y-axis div (vertical)
-    // use this svg element to add all data (eg rectangles, etc)
-    // this way we keep x-axis above it in a different div, which we can set
-    // to `position: fixed`
-    svgY = d3.select(".y-axis").append("svg")
-      .attr("width", width)
-      .attr("height", height);
+    svg = d3.selectAll("#fst").append("svg")
+    .attr("width", width)
+    .attr("height", height);
 
-    let item = svgY.append("g").attr("class", "canvas");
+    let item = svg.append("g");
 
-    // create rectangles with data available
-    item.selectAll(".canvas")
-      .data(data)
-      .enter()
-      .append("rect")
-      .attr("width", 8)
-      .attr("height", 10)
-      .attr("x", width / 2)
-      .attr("y", height / 2)
-      .attr("fill", (d) => {
-        return color(d.th)
-      })
+    item.selectAll("rect")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("width", 8)
+    .attr("height", 10)
+    .attr("x", width / 2)
+    .attr("y", height / 2)
+    .attr("fill", (d) => {
+      return color(d.th)}
+    )
     .attr("stroke", "rgba(0,0,0,.2)");
 
     // create single tooltip to display when hovering over specific rectangle
@@ -90,8 +81,7 @@ d3.json('data/dataset_sexuality.json')
 
     // display / hide tooltip on mouse hovering
     d3.selectAll("rect").on("mouseover", (d) => {
-      tooltip.text(`${d.description_second} ${d.title} ${d.author}`);
-      return tooltip.style("visibility", "visible");
+      console.log(d.description_second + "\n" + d.title + "\n" + d.author)
     })
       .on("mousemove", () => {
         return tooltip

@@ -14,7 +14,8 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
-terms=["homobeweging", "lesbische_beweging", "homorechten", "homohuwelijk", "anti-discriminatiewetgewing", "queer_theory", "homocultuur", "feminisme", "discriminatie", "activisten"]
+terms=["racisme", "seksisme", "genderisme", "validisme", "klassisme", "homofobie", "transfobie", "discriminatie", "microaggressie", "online_intimidatie", ]
+publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
 
 print (len(data))
 newdata=[]
@@ -31,7 +32,7 @@ for item in data:
         publisher_found=False
         for description in item['description']:
             if description in terms:
-                if 'publisher' in item:
+                if 'publisher' in item and item['publisher'] not in publisher_cleaner:
                     if not item['publisher']:
                         continue
 
@@ -57,8 +58,8 @@ for item in data:
 
             publisher_found=False
 
-most_common=[i[0] for i in counter.most_common(10)]
-print(most_common)
+most_common=[i[0] for i in counter.most_common(40)]
+print(len([x for x in counter.most_common(40)]))
 extranewdata=[]
 for item in newdata:
     # import pdb; pdb.set_trace()
@@ -70,8 +71,7 @@ for item in newdata:
             extranewdata.append(item)
 
 
-with open('data/dataset_activism.json', 'w') as f:
+with open('data/dataset_structural_oppression.json', 'w') as f:
     f.write(json.dumps(extranewdata))
-print(extranewdata)
 # import pdb; pdb.set_trace()
 print (len(extranewdata))

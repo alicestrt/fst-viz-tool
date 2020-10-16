@@ -8,7 +8,7 @@ let height = 5000;
 
 let svg;
 
-d3.json('data/dataset_gender.json')
+d3.json('data/dataset_race.json')
   .then(function(data) {
 
     x.domain(data.map((d)=> {
