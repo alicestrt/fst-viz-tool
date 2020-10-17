@@ -76,7 +76,6 @@ d3.json('data/dataset_sexuality2.json')
         .style("visibility", "hidden")
         .style("background", "#fff")
         .style("width", "20rem")
-        .attr("data-html", "true")
         .text("...");
 
     // display / hide tooltip on mouse hovering
