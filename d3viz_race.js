@@ -100,6 +100,7 @@ d3.json('data/dataset_race.json')
         return tooltip.style("visibility", "hidden");
       });
 
+<<<<<<< HEAD
     function tick () {
       d3.selectAll('rect')
         .attr('x', function (d) { return d.x })
@@ -122,6 +123,8 @@ d3.json('data/dataset_race.json')
     svgX.append("g")
       .attr("transform", "translate(0," + 0 + ")")
       .call(d3.axisBottom(x));
+=======
+>>>>>>> 9639a2b98a2248b7d1c5e50f03b05cae3606c9c2
 
   })
   .catch(function(error){
