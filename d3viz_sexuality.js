@@ -8,13 +8,18 @@ let height = 5000;
 
 let svg;
 
-d3.json('data/dataset_sexuality2.json')
+d3.json('data/dataset_sexuality_addcontext.json')
   .then(function(data) {
 
     x.domain(data.map((d)=> {
       if (d.description!=""){
       return d.description;
-    }}))
+    };
+      // if (d.description="homomannen"){
+      //   return (d.description
+      //   .append('title') // append title with text
+      //   .text("..."))};
+    }))
     .range([200, width-50]);
 
     y.domain(data.map((d)=> {
@@ -33,6 +38,7 @@ d3.json('data/dataset_sexuality2.json')
       .force('x', d3.forceX( (d) => {
         if (d.description!=""){
         return x(d.description)
+        // return also term that is not assigned in book
       }}).strength(0.99))
       .force('y', d3.forceY( (d) => {
         return y(d.publisher);
@@ -78,7 +84,7 @@ d3.json('data/dataset_sexuality2.json')
 
     // display / hide tooltip on mouse hovering
     d3.selectAll("rect").on("mouseover", (d) => {
-      tooltip.text(`${d.description_second} ${d.title} ${d.author}`);
+      tooltip.html(`${d.description_second} <br> ${d.title} <br> ${d.author}`);
       return tooltip.style("visibility", "visible");
     })
       .on("mousemove", () => {
@@ -91,6 +97,8 @@ d3.json('data/dataset_sexuality2.json')
       });
 
 
+
+
     function tick(){
 
         d3.selectAll('rect')
@@ -101,7 +109,52 @@ d3.json('data/dataset_sexuality2.json')
 
       svg.append("g")
         .attr("transform", "translate(0," + 0 + ")")
+        .attr("class", "xaxis")
         .call(d3.axisBottom(x));
+
+
+        d3.select(".xaxis").selectAll("text").attr("id", function(d,i) {return "axisText" + i});
+        d3.select("#axisText0")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+<ul class="synonyms">
+<li>UF <s>homovrouwen</s></li>
+<li>USE lesbische vrouwen</li>
+</ul>
+<ul class="redterms">
+<li class="searched">searched for:</li>
+<li>ADD UF vrouwen die seks hebben met vrouwen</li>
+<li>UF lesbiennes USE lesbische vrouwen (red link)</li>
+<li>UF potten  USE lesbische vrouwen</li>
+</ul></div>`);
+          return tooltip.style("visibility", "visible");
+        })
+          .on("mousemove", () => {
+            return tooltip
+              .style("top", (d3.event.pageY-10)+"px")
+              .style("left",(d3.event.pageX+10)+"px");
+          })
+          .on("mouseout", () => {
+            return tooltip.style("visibility", "hidden");
+          });
+
+
+// something wrong with tooltip
+      // d3.selectAll("g")
+      //   .on("mouseover", (d) => {
+      //   tooltip.text(`${d.context_first}`);
+      //   return tooltip.style("visibility", "visible");
+      // })
+      //   .on("mousemove", () => {
+      //     return tooltip
+      //       .style("top", (d3.event.pageY-10)+"px")
+      //       .style("left",(d3.event.pageX+10)+"px");
+      //   })
+      //   .on("mouseout", () => {
+      //     return tooltip.style("visibility", "hidden");
+      //   });
+
+
 
       svg.append("g")
         .attr("transform", "translate(0," + 0 + ")")

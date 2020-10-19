@@ -18,7 +18,7 @@ counter = Counter()
 
 # terms=[{"homomannen":"other"},"lesbische_vrouwen","coming_out","sexsuele_orientatie","lhbt","homoparen","homojongens","bisexualiteit"]
 # terms={"homomannen":["other","otherother"],"lesbische_vrouwen":"something"}
-terms={"homomannen":"otherother","lesbische_vrouwen":"something", "coming_out":"else"}
+terms={"homomannen":"otherother","lesbische_vrouwen":"something"}
 # print(terms["homomannen"])
 # for some reason it prints in reverse
 

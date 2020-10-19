@@ -25,3 +25,10 @@ ul {
   position: fixed;
   background-color:transparent;
 }
+
+.tooltipxaxis {
+  /* background-color: pink; */
+  border: 1px dashed;
+  height:10%;
+  /* overflow-x:scroll; */
+}
