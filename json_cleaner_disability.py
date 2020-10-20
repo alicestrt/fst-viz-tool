@@ -14,8 +14,15 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
+#find each term in terms which doesn't get included in the generated json
+#change the python to include each term (skipping because no description)
+#json will have items empty apart from description eg gehoorproblemen
+#add a key to those items which is show = false
+#change js where it creates rectangles (disability line 65)to skip those items with show false  
+
 terms=["invaliden","blinden","blindheid","lichamelijk_gehandicapten","gehoorproblemen","gehandicaptenstudies"]
 publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
+
 
 print (len(data))
 newdata=[]

@@ -62,6 +62,8 @@ d3.json('data/dataset_disability.json')
 
     let item = svgY.append("g").attr("class", "canvas");
 
+  //  debugger;
+  //filter newdata variable for items that do not have show key
     // create rectangles with data available
     item.selectAll(".canvas")
       .data(data)
