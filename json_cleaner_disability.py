@@ -35,6 +35,7 @@ for item in data:
         item['description'] = hashsplitter(item['description'])
 
         newlist=[]
+        otherdescr=[]
         found=False
         publisher_found=False
         for description in item['description']:
@@ -53,6 +54,8 @@ for item in data:
                             publisher_found=True
                 newlist.append(description)
                 found=True
+            else:
+                otherdescr.append(description)
 
 
             if found:
@@ -64,6 +67,12 @@ for item in data:
                 newdata.append(item)
 
             publisher_found=False
+
+            item['other_descriptions']=otherdescr
+            newdata.append(item)
+import pdb; pdb.set_trace()
+
+
 
 for object in newdata:
     newdescr=[]
