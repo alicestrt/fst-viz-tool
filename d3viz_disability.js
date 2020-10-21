@@ -93,7 +93,7 @@ d3.json('data/dataset_disability.json')
 
     // display / hide tooltip on mouse hovering
     d3.selectAll("rect").on("mouseover", (d) => {
-      tooltip.text(`${d.description_second} ${d.title} ${d.author}`);
+      tooltip.html(`${d.title} <br> ${d.author}`);
       return tooltip.style("visibility", "visible");
     })
       .on("mousemove", () => {
