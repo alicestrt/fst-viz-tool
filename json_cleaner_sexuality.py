@@ -66,7 +66,7 @@ for object in newdata:
         if term not in object['description']:
             newdescr.append(term)
 for descr in newdescr:
-    newitem={'description':descr, 'show':'false'}
+    newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
     newdata.append(newitem)
 
 most_common=[i[0] for i in counter.most_common(40)]

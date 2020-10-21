@@ -14,7 +14,7 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
-terms=["culturen","etnische_groepen","zwarten","niet-witte mensen","inheemse_volken","witte mensen","migranten","vluchtelingen","etnische_studies", "institutionele_segregatie","kolonialisme", "racisme", "interculturele_relaties"]
+terms=["culturen","etnische_groepen","zwarten","niet-witte mensen","inheemse_volken","witte","migranten","vluchtelingen","etnische_studies", "institutionele_segregatie","kolonialisme", "racisme"]
 
 publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
 
@@ -69,7 +69,7 @@ for object in newdata:
         if term not in object['description']:
             newdescr.append(term)
 for descr in newdescr:
-    newitem={'description':descr, 'show':'false'}
+    newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
     newdata.append(newitem)
 
 most_common=[i[0] for i in counter.most_common(40)]
