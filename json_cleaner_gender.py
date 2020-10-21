@@ -14,7 +14,7 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
-terms=["gender", "genderidentiteit", "genderisme", "genderminderheden", "vrouwen", "mannen", "transgenders", "gender_non_binariteit", "genderdiversiteit", "genderrelaties", "genderstudies", "interseks"]
+terms=["gender", "genderidentiteit", "genderisme", "genderminderheden", "vrouwen", "mannen", "transgenders", "genderdiversiteit", "genderrelaties", "genderstudies", "interseks"]
 publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
 
 print (len(data))
@@ -71,7 +71,7 @@ for object in newdata:
         if term not in object['description']:
             newdescr.append(term)
 for descr in newdescr:
-    newitem={'description':descr, 'show':'false'}
+    newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
     newdata.append(newitem)
 #import pdb; pdb.set_trace()
 
