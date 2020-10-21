@@ -61,18 +61,14 @@ for item in data:
             if found:
                 if len(newlist) >=2:
                     item['description_second']=newlist[1]
+                    item['other_descriptions']=otherdescr
                 else:
                     item['description']=newlist[0]
+                    item['other_descriptions']=otherdescr
                 # print (newlist[0])
                 newdata.append(item)
 
             publisher_found=False
-
-            item['other_descriptions']=otherdescr
-            newdata.append(item)
-import pdb; pdb.set_trace()
-
-
 
 for object in newdata:
     newdescr=[]
