@@ -6,20 +6,28 @@
   <meta name="description" content="">
   <link href=data:, rel=icon>
   <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.5.1.js"></script>
 </head>
 <body>
-  <ul>
+  <ul class="menu">
     <li><a class="active" href="index.html">Disability</a></li>
     <li><a href="structural_oppression.html">Structural Oppression</a></li>
     <li><a href="race.html">Race</a></li>
     <li><a href="gender.html">Gender</a></li>
     <li><a href="sexuality.html">Sexuality</a></li>
   </ul>
+  <div id="publishers">Most encountered publishers</div>
 
   <div id="fst">
     <div class="x-axis"></div>
     <div class="y-axis"></div>
   </div>
+
+  <script>
+    $(window).scroll(function(event) {
+     $(".x-axis").css("margin-left", 0-$(document).scrollLeft());
+  });
+  </script>
 
   <script src="https://d3js.org/d3.v5.js"></script>
   <script src="https://d3js.org/d3-color.v1.min.js"></script>

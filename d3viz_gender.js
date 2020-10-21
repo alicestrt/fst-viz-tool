@@ -3,8 +3,8 @@ let color = d3.scaleOrdinal(d3.schemeSet3);
 let y = d3.scalePoint();
 let x = d3.scalePoint();
 
-let width = 1500;
-let height = 2000;
+let width = 2000;
+let height = 6000;
 
 let svg;
 
@@ -17,7 +17,7 @@ d3.json('data/dataset_gender.json')
         return d.description;
       }
     }))
-      .range([300, width - 50]);
+      .range([300, width - 80]);
 
     // set y-axis
     y.domain(data.map((d) => {

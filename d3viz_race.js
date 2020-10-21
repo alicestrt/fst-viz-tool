@@ -4,7 +4,7 @@ let y = d3.scalePoint();
 let x = d3.scalePoint();
 
 let width = 1800;
-let height = 3000;
+let height = 3200;
 
 let svg;
 
@@ -17,7 +17,7 @@ d3.json('data/dataset_race.json')
         return d.description;
       }
     }))
-      .range([300, width - 50]);
+      .range([300, width - 80]);
 
     // set y-axis
     y.domain(data.map((d) => {

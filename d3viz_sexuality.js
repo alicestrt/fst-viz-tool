@@ -4,7 +4,7 @@ let y = d3.scalePoint();
 let x = d3.scalePoint();
 
 let width = 1500;
-let height = 2000;
+let height = 8000;
 
 let svg;
 
@@ -23,7 +23,7 @@ d3.json('data/dataset_sexuality2.json')
     y.domain(data.map((d) => {
       return d.publisher;
     }))
-      .range([100, height - 50]);
+      .range([150, height - 50]);
 
     color.domain(data.map((d) => {
       if (d.description_second != "") {

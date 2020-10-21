@@ -4,7 +4,7 @@ let y = d3.scalePoint();
 let x = d3.scalePoint();
 
 let width = 1500;
-let height = 2000;
+let height = 3200;
 
 let svg;
 
