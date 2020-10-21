@@ -63,8 +63,11 @@ d3.json('data/dataset_gender.json')
     .attr("x", width / 2)
     .attr("y", height / 2)
     .attr("fill", (d) => {
-      return color(d.th)}
-    )
+      if (d.show != "") {
+        return color("rgba(255,0,0,1)");
+      }
+      else {return color(d.th);}
+    })
     .attr("stroke", "rgba(0,0,0,.2)");
 
     var tooltip = d3.select("body")
