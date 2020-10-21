@@ -17,13 +17,13 @@ d3.json('data/dataset_disability.json')
         return d.description;
       }
     }))
-      .range([200, width - 50]);
+      .range([300, width - 50]);
 
     // set y-axis
     y.domain(data.map((d) => {
       return d.publisher;
     }))
-      .range([50, height - 50]);
+      .range([100, height - 50]);
 
     color.domain(data.map((d) => {
       if (d.description_second != "") {
@@ -117,6 +117,10 @@ d3.json('data/dataset_disability.json')
       .attr("transform", "translate(0," + 0 + ")")
       .call(d3.axisRight(y));
 
+    // style the terms in y-axis
+    d3.select(".y-axis").selectAll("text").style("max-width", '20px').style("height", '200px');
+
+
     // add new svg to x-axis div
     let svgX = d3.select('.x-axis')
         .append('svg')
@@ -128,30 +132,33 @@ d3.json('data/dataset_disability.json')
       .attr("transform", "translate(0," + 0 + ")")
       .call(d3.axisBottom(x));
 
-      d3.select(".xaxis").selectAll("text").attr("id", function(d,i) {return "axisText" + i});
-      d3.select("#axisText0")
-      .on("mouseover", (d) => {
-        tooltip.html(`<div class="tooltipxaxis">
-        <ul class="synonyms">
-        <li>UF <s>homovrouwen</s></li>
-        <li>USE lesbische vrouwen</li>
-        </ul>
-        <ul class="redterms">
-        <li class="searched">searched for:</li>
-        <li>ADD UF vrouwen die seks hebben met vrouwen</li>
-        <li>UF lesbiennes USE lesbische vrouwen (red link)</li>
-        <li>UF potten  USE lesbische vrouwen</li>
-        </ul></div>`);
-        return tooltip.style("visibility", "visible");
+    // give ids to the terms of x-axis
+    d3.select(".x-axis").selectAll("text").attr("id", function(d,i) {return "axisText" + i});
+    // hover on the terms of x-axis. The tooltip block show related terms,
+    // redlinks terms and sometimes definition of each term
+    d3.select("#axisText0")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+      <ul class="synonyms">
+      <li>UF <s>homovrouwen</s></li>
+      <li>USE lesbische vrouwen</li>
+      </ul>
+      <ul class="redterms">
+      <li class="searched">searched for:</li>
+      <li>ADD UF vrouwen die seks hebben met vrouwen</li>
+      <li>UF lesbiennes USE lesbische vrouwen (red link)</li>
+      <li>UF potten  USE lesbische vrouwen</li>
+      </ul></div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
       })
-        .on("mousemove", () => {
-          return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
-        })
-        .on("mouseout", () => {
-          return tooltip.style("visibility", "hidden");
-        });
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
 
   })
   .catch(function(error){

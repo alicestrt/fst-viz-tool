@@ -8,7 +8,7 @@ let height = 2000;
 
 let svg;
 
-d3.json('data/dataset_race.json')
+d3.json('data/dataset_disability.json')
   .then(function(data) {
 
     // set x-axis
