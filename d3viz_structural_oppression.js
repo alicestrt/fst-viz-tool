@@ -170,7 +170,38 @@ d3.json('data/dataset_structural_oppression.json')
       });
 // end of tooltip racisme
 
+// beginning of tooltip racisme
+    d3.select("#structuralText0")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
 
+    <ul class="searched">
+        <li class="titles">Searched for:</li>
+        <li><s>rassendiscriminatie</s> USE racsime</li>
+        <li>ADD: xenofobie</li>
+        <li>ADD: kolonialisme</li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>discriminatie </li>
+        <li>etnische verhoudingen </li>
+        <li>anti-racisme </li>
+        <li>etnocentrisme </li>
+        <li>ADD white supremacy - redlink</li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip racisme
 
 
   })

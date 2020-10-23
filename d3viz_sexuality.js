@@ -62,11 +62,12 @@ d3.json('data/dataset_sexuality2.json')
 
     let item = svgY.append("g").attr("class", "canvas");
 
+let filtered = data.filter(function(d){ return d.show != "false"})
   //  debugger;
   //filter newdata variable for items that do not have show key
     // create rectangles with data available
     item.selectAll(".canvas")
-      .data(data)
+      .data(filtered)
       .enter()
       .append("rect")
       .attr("width", 8)
