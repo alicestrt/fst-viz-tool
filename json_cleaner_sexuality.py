@@ -27,7 +27,7 @@ for item in data:
         item['description'] = hashsplitter(item['description'])
 
         newlist=[]
-        # length=len(item['description'])
+        otherdescr=[]
         found=False
         publisher_found=False
         for description in item['description']:
@@ -45,19 +45,33 @@ for item in data:
                             publisher_found=True
                 newlist.append(description)
                 found=True
+            else:
+                otherdescr.append(description)
 
             if found:
                 if len(newlist) >=2:
                     item['description_second']=newlist[1]
+                    item['other_descriptions']=otherdescr
                 else:
                     item['description']=newlist[0]
+                    item['other_descriptions']=otherdescr
                 # print (newlist[0])
                 newdata.append(item)
 
             publisher_found=False
 
+for object in newdata:
+    newdescr=[]
+    for term in terms:
+        if term not in object['description']:
+            newdescr.append(term)
+for descr in newdescr:
+    newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
+    newdata.append(newitem)
+
 most_common=[i[0] for i in counter.most_common(40)]
 print(most_common)
+
 extranewdata=[]
 for item in newdata:
     # import pdb; pdb.set_trace()
@@ -67,6 +81,8 @@ for item in newdata:
         # import pdb; pdb.set_trace()
         if item['publisher'] in most_common:
             extranewdata.append(item)
+    elif item['description'] in newdescr:
+        extranewdata.append(item)
 
 
 with open('data/dataset_sexuality2.json', 'w') as f:

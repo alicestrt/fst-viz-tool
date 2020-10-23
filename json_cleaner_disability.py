@@ -35,6 +35,7 @@ for item in data:
         item['description'] = hashsplitter(item['description'])
 
         newlist=[]
+        otherdescr=[]
         found=False
         publisher_found=False
         for description in item['description']:
@@ -53,13 +54,17 @@ for item in data:
                             publisher_found=True
                 newlist.append(description)
                 found=True
+            else:
+                otherdescr.append(description)
 
 
             if found:
                 if len(newlist) >=2:
                     item['description_second']=newlist[1]
+                    item['other_descriptions']=otherdescr
                 else:
                     item['description']=newlist[0]
+                    item['other_descriptions']=otherdescr
                 # print (newlist[0])
                 newdata.append(item)
 
@@ -71,7 +76,7 @@ for object in newdata:
         if term not in object['description']:
             newdescr.append(term)
 for descr in newdescr:
-    newitem={'description':descr, 'show':'false'}
+    newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
     newdata.append(newitem)
 # import pdb; pdb.set_trace()
 
