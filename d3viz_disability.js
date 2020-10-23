@@ -133,10 +133,12 @@ d3.json('data/dataset_disability.json')
       .call(d3.axisBottom(x));
 
     // give ids to the terms of x-axis
-    d3.select(".x-axis").selectAll("text").attr("id", function(d,i) {return "axisText" + i});
+    d3.select(".x-axis").selectAll("text").attr("id", function(d,i) {return "disabilityText" + i});
     // hover on the terms of x-axis. The tooltip block show related terms,
     // redlinks terms and sometimes definition of each term
-    d3.select("#axisText0")
+
+    d3.select("#disabilityText0")
+    .style('color','red')
     .on("mouseover", (d) => {
       tooltip.html(`<div class="tooltipxaxis">
       <ul class="synonyms">

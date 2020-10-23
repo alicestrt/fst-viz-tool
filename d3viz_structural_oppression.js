@@ -133,22 +133,31 @@ d3.json('data/dataset_structural_oppression.json')
       .call(d3.axisBottom(x));
 
     // give ids to the terms of x-axis
-    d3.select(".x-axis").selectAll("text").attr("id", function(d,i) {return "axisText" + i});
+    d3.select(".x-axis").selectAll("text").attr("id", function(d,i) {return "structuralText" + i});
     // hover on the terms of x-axis. The tooltip block show related terms,
     // redlinks terms and sometimes definition of each term
-    d3.select("#axisText0")
+
+// beginning of tooltip racisme
+    d3.select("#structuralText0")
     .on("mouseover", (d) => {
       tooltip.html(`<div class="tooltipxaxis">
-      <ul class="synonyms">
-      <li>UF <s>homovrouwen</s></li>
-      <li>USE lesbische vrouwen</li>
-      </ul>
-      <ul class="redterms">
-      <li class="searched">searched for:</li>
-      <li>ADD UF vrouwen die seks hebben met vrouwen</li>
-      <li>UF lesbiennes USE lesbische vrouwen (red link)</li>
-      <li>UF potten  USE lesbische vrouwen</li>
-      </ul></div>`);
+
+    <ul class="searched">
+        <li class="titles">Searched for:</li>
+        <li><s>rassendiscriminatie</s> USE racsime</li>
+        <li>ADD: xenofobie</li>
+        <li>ADD: kolonialisme</li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>discriminatie </li>
+        <li>etnische verhoudingen </li>
+        <li>anti-racisme </li>
+        <li>etnocentrisme </li>
+        <li>ADD white supremacy - redlink</li>
+    </ul>
+
+</div>`);
       return tooltip.style("visibility", "visible");
     })
       .on("mousemove", () => {
@@ -159,6 +168,10 @@ d3.json('data/dataset_structural_oppression.json')
       .on("mouseout", () => {
         return tooltip.style("visibility", "hidden");
       });
+// end of tooltip racisme
+
+
+
 
   })
   .catch(function(error){

@@ -63,15 +63,23 @@ for item in data:
 
             publisher_found=False
 
-
-for object in newdata:
-    newdescr=[]
-    for term in terms:
-        if term not in object['description']:
+newdescr=[]
+for term in terms:
+    for item in newdata:
+        if item['description']==term:
+            break
+        else:
             newdescr.append(term)
-for descr in newdescr:
-    newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
-    newdata.append(newitem)
+
+# new = []
+# for descr in newdescr:
+#     if descr not in new:
+#         new.append(descr)
+#     newdescr = new
+#
+# for descr in newdescr:
+#     newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
+#     newdata.append(newitem)
 
 most_common=[i[0] for i in counter.most_common(40)]
 print(len([x for x in counter.most_common(40)]))
