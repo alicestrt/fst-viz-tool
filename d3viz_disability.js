@@ -8,7 +8,12 @@ let height = 2000;
 
 let svg;
 
-d3.json('data/dataset_disability.json')
+const view = window.location.href.split('/').slice(-1)[0].split('.')[0]
+const filename = view === 'index'
+      ? 'disability'
+      : view
+
+d3.json(`data/dataset_${filename}.json`)
   .then(function(data) {
 
     // set x-axis
