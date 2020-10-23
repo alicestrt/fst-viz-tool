@@ -14,7 +14,7 @@ with open('data/dataset_selection.json', 'r') as f:
 
 counter = Counter()
 
-terms=["racisme", "seksisme", "genderisme", "validisme", "klassisme", "homofobie", "transfobie", "discriminatie", "microaggressie"]
+terms=["racisme", "seksisme", "genderisme", "validisme", "klassisme", "homofobie", "transfobie", "discriminatie", "microaggressie", "institutionele_segregatie"]
 publisher_cleaner=["s.n.", "s.n.]", "[s.n.]", "s.n.] "]
 
 print (len(data))
@@ -59,20 +59,23 @@ for item in data:
                     item['description']=newlist[0]
                     item['other_descriptions']=otherdescr
                 # print (newlist[0])
+
                 newdata.append(item)
 
             publisher_found=False
 
 
-for object in newdata:
+for item in newdata:
     newdescr=[]
+
     for term in terms:
-        if term not in object['description']:
+        if term not in item['description']:
             newdescr.append(term)
+    import pdb; pdb.set_trace()
+
 for descr in newdescr:
     newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
     newdata.append(newitem)
-
 most_common=[i[0] for i in counter.most_common(40)]
 print(len([x for x in counter.most_common(40)]))
 extranewdata=[]
