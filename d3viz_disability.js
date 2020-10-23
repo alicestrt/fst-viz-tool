@@ -144,30 +144,32 @@ d3.json(`data/dataset_${filename}.json`)
     // hover on the terms of x-axis. The tooltip block show related terms,
     // redlinks terms and sometimes definition of each term
 
-    d3.select("#disabilityText0")
-    .style('color','red')
-    .on("mouseover", (d) => {
-      tooltip.html(`<div class="tooltipxaxis">
-      <ul class="synonyms">
-      <li>UF <s>homovrouwen</s></li>
-      <li>USE lesbische vrouwen</li>
-      </ul>
-      <ul class="redterms">
-      <li class="searched">searched for:</li>
-      <li>ADD UF vrouwen die seks hebben met vrouwen</li>
-      <li>UF lesbiennes USE lesbische vrouwen (red link)</li>
-      <li>UF potten  USE lesbische vrouwen</li>
-      </ul></div>`);
-      return tooltip.style("visibility", "visible");
-    })
-      .on("mousemove", () => {
-        return tooltip
-          .style("top", (d3.event.pageY-10)+"px")
-          .style("left",(d3.event.pageX+10)+"px");
+    if (filename === 'disability') {
+      d3.select("#disabilityText0")
+      .style('color','red')
+      .on("mouseover", (d) => {
+        tooltip.html(`<div class="tooltipxaxis">
+        <ul class="synonyms">
+        <li>UF <s>homovrouwen</s></li>
+        <li>USE lesbische vrouwen</li>
+        </ul>
+        <ul class="redterms">
+        <li class="searched">searched for:</li>
+        <li>ADD UF vrouwen die seks hebben met vrouwen</li>
+        <li>UF lesbiennes USE lesbische vrouwen (red link)</li>
+        <li>UF potten  USE lesbische vrouwen</li>
+        </ul></div>`);
+        return tooltip.style("visibility", "visible");
       })
-      .on("mouseout", () => {
-        return tooltip.style("visibility", "hidden");
-      });
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY-10)+"px")
+            .style("left",(d3.event.pageX+10)+"px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+    }
 
   })
   .catch(function(error){
