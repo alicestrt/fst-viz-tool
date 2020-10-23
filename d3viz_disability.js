@@ -67,10 +67,10 @@ d3.json(`data/dataset_${filename}.json`)
 
     let item = svgY.append("g").attr("class", "canvas");
 
-let filtered = data.filter(function(d){ return d.show != "false"})
+    let filtered = data.filter(function(d){ return d.show != "false"})
 
-  //  debugger;
-  //filter newdata variable for items that do not have show key
+    // debugger;
+    // filter newdata variable for items that do not have show key
     // create rectangles with data available
     item.selectAll(".canvas")
       .data(filtered)
