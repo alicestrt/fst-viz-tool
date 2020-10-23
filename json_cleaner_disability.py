@@ -76,7 +76,7 @@ for object in newdata:
         if term not in object['description']:
             newdescr.append(term)
 for descr in newdescr:
-    newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}
+    newitem={'description':descr, 'show':'false'}
     newdata.append(newitem)
 # import pdb; pdb.set_trace()
 
