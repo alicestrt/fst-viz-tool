@@ -71,7 +71,6 @@ for item in newdata:
     for term in terms:
         if term not in item['description']:
             newdescr.append(term)
-    import pdb; pdb.set_trace()
 
 for descr in newdescr:
     newitem={'title': 'No book here.', 'author':'Maybe in the future.','description':descr, 'show':'false'}

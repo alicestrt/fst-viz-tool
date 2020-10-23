@@ -170,24 +170,33 @@ d3.json('data/dataset_structural_oppression.json')
       });
 // end of tooltip racisme
 
-// beginning of tooltip racisme
-    d3.select("#structuralText0")
+// beginning of tooltip homofobie
+    d3.select("#structuralText1")
     .on("mouseover", (d) => {
       tooltip.html(`<div class="tooltipxaxis">
 
+    <ul class="def">
+        <li>def:  gevoelens van ongemak, angst, </li>
+        <li>minachting, vijandigheid en/of </li>
+        <li>haat tegen homoseksuelen en </li>
+        <li>homoseksualiteit </li>
+    </ul>
     <ul class="searched">
         <li class="titles">Searched for:</li>
-        <li><s>rassendiscriminatie</s> USE racsime</li>
-        <li>ADD: xenofobie</li>
-        <li>ADD: kolonialisme</li>
+        <li><s>discriminatie van homo's</s> USE homofobie</li>
+        <li><s>homo-aversie </s> USE homofobie</li>
+        <li><s>homodiscriminatie </s> USE homofobie</li>
+        <li><s>homonegativiteit </s> USE homofobie (redlink)</li>
+        <li>geïnternaliseerde homofobie </li>
     </ul>
     <ul class="related">
         <li class="titles">Not searched for but related:</li>
         <li>discriminatie </li>
-        <li>etnische verhoudingen </li>
-        <li>anti-racisme </li>
-        <li>etnocentrisme </li>
-        <li>ADD white supremacy - redlink</li>
+        <li>bifobie </li>
+        <li>fobieën </li>
+        <li><s>heteroseksisme<s> USE heteronormativiteit (red link) </li>
+        <li>lesbofobie </li>
+        <li><s>pesten</s> USE microagressie (red link) </li>
     </ul>
 
 </div>`);
@@ -201,7 +210,287 @@ d3.json('data/dataset_structural_oppression.json')
       .on("mouseout", () => {
         return tooltip.style("visibility", "hidden");
       });
-// end of tooltip racisme
+// end of tooltip homofobie
+
+// beginning of tooltip discriminatie
+    d3.select("#structuralText2")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+        <li class="titles">Searched for:</li>
+        <li>AIDS-angst</li>
+        <li>anti-semitisme</li>
+        <li>bifobie</li>
+        <li>discriminatie op de werkvloer</li>
+        <li>genderisme</li>
+        <li>handicapisme</li>
+        <li>homofobie</li>
+        <li>islamofobie</li>
+        <li>klassisme</li>
+        <li>leeftijdsdiscriminatie</li>
+        <li>lesbofobie</li>
+        <li>positieve actie</li>
+        <li>racisme</li>
+        <li>seksisme</li>
+        <li>transfobie</li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>anti-discriminatiewetgeving </li>
+        <li>intimidatie </li>
+        <li>onderdrukking </li>
+        <li>vervolgingen </li>
+        <li>vooroordelen </li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip discriminatie
+
+// beginning of tooltip seksisme
+    d3.select("#structuralText3")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+        <li class="titles">Searched for:</li>
+        <li><s>seksediscriminatie</s> USE seksisme</li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>discriminatie </li>
+        <li>genderisme </li>
+        <li>heteroseksisme </li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip seksisme
+
+// beginning of tooltip transfobie
+    d3.select("#structuralText4")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>discriminatie </li>
+        <li>bifobie </li>
+        <li>fobieën </li>
+        <li>heteroseksisme </li>
+        <li>homofobie </li>
+        <li>lesbofobie </li>
+        <li>pesten </li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip transfobie
+
+// beginning of tooltip klassisme
+    d3.select("#structuralText5")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="def">
+        <li>def: discriminatie op basis van klasse </li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>discriminatie </li>
+        <li>klassenstrijd </li>
+        <li>sociale klassen </li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip klassisme
+
+// beginning of tooltip genderisme
+    d3.select("#structuralText6")
+    .style("color","red")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+        <li class="titles">Searched for:</li>
+        <li><s>genderdiscriminatie</s> USE genderisme</li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>discriminatie </li>
+        <li>gender </li>
+        <li>seksisme </li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip genderisme
+
+
+// beginning of tooltip validisme
+    d3.select("#structuralText7")
+    .style("color","red")
+    .style("text-decoration", "line-through")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+        <li class="titles">Searched for:</li>
+        <li><s>discriminatie van gehandicapten: </s> USE validisme - red link</li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>discriminatie </li>
+        <li>gehandicapten </li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip validisme
+
+
+// beginning of tooltip microaggressie
+    d3.select("#structuralText8")
+    .style("color","red")
+    .style("text-decoration", "line-through")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="def">
+        <li>def: SN een vorm van gedrag waarbij personen </li>
+        <li>herhaaldelijk en gedurende langere </li>
+        <li>tijd door één of meerdere anderen op </li>
+        <li>agressieve wijze bejegend worden; </li>
+        <li>het kan daarbij gaan om verbale </li>
+        <li>intimidatie, fysiek geweld of dwang </li>
+        <li>en kan gericht zijn tegen specifieke </li>
+        <li>slachtoffers, mogelijk op grond van </li>
+        <li>etniciteit, religie, gender of </li>
+        <li>seksualiteit </li>
+    </ul>
+    <ul class="searched">
+        <li class="titles">Searched for:</li>
+        <li>cyberpesten: USE online intimidatie - red link</li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>agressie </li>
+        <li>bifobie </li>
+        <li>homofobie  </li>
+        <li>intimidatie </li>
+        <li>lesbofobie </li>
+        <li>transfobie </li>
+        <li>vroegtijdige schoolverlaters </li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip microaggressie
+
+
+// beginning of tooltip institutionele segregatie
+    d3.select("#structuralText9")
+    .style("color","red")
+    .style("text-decoration", "line-through")
+    .on("mouseover", (d) => {
+      tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="def">
+        <li><s>def: SN verhoudingen tussen etnische groepen</s> institutionele segregatie</li>
+        <li><s>UF rassenverhoudingen</s> USE institutionele segregatie (redlink)</li>
+    </ul>
+    <ul class="searched">
+        <li class="titles">Searched for:</li>
+        <li>anti-semitisme</li>
+        <li>apartheid </li>
+        <li>racisme </li>
+    </ul>
+    <ul class="related">
+        <li class="titles">Not searched for but related:</li>
+        <li>sociale processen</li>
+        <li>etnische diversiteit </li>
+        <li>etnische groepen </li>
+        <li>etnische studies </li>
+        <li>etnocentrisme</li>
+    </ul>
+
+</div>`);
+      return tooltip.style("visibility", "visible");
+    })
+      .on("mousemove", () => {
+        return tooltip
+          .style("top", (d3.event.pageY-10)+"px")
+          .style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", () => {
+        return tooltip.style("visibility", "hidden");
+      });
+// end of tooltip institutionele segregatie
 
 
   })
