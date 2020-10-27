@@ -1,4 +1,10 @@
-let color = d3.scaleOrdinal(d3.schemeSet3);
+// let color = d3.scaleOrdinal(d3.schemeSet3);
+
+// do not set d3.schemeSet3, to keep rectangle color not set
+// d3.schemeSet3 applies a colorscheme on its own
+// see <https://github.com/d3/d3-scale-chromatic>
+// and <https://www.d3-graph-gallery.com/graph/custom_color.html>
+let color = d3.scaleOrdinal();
 
 let y = d3.scalePoint();
 let x = d3.scalePoint();
@@ -81,10 +87,20 @@ d3.json(`data/dataset_${filename}.json`)
       .attr("x", width / 2)
       .attr("y", height / 2)
       .attr("fill", (d) => {
+        // set if / else condition
         if (d.show != "") {
-          return color("rgba(255,0,0,1)");
+          if (d.other_descriptions.length > 0) {
+            // set intersectional color
+            return "#ddd";
+          } else if (d.description !== '') {
+            // return topic color
+            return '#ede';
+          } else {
+            // set basic color in case both `other_description`
+            // and `description` are empty? maybe not necessary,
+            // depends on the python code your write
+          }
         }
-        else {return color(d.th);}
       })
     .attr("stroke", "rgba(0,0,0,.2)");
 
@@ -106,7 +122,7 @@ d3.json(`data/dataset_${filename}.json`)
       .on("mousemove", () => {
         return tooltip
           .style("top", (d3.event.pageY-10)+"px")
-          .style("left",(d3.event.pageX+10)+"px");
+          .style("left", (d3.event.pageX+10)+"px");
       })
       .on("mouseout", () => {
         return tooltip.style("visibility", "hidden");
