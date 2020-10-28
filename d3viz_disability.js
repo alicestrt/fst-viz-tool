@@ -10,7 +10,7 @@ let y = d3.scalePoint();
 let x = d3.scalePoint();
 
 let width = 1500;
-let height = 2000;
+let height = 8000;
 
 let svg;
 
@@ -92,29 +92,75 @@ d3.json(`data/dataset_${filename}.json`)
       .attr("x", width / 2)
       .attr("y", height / 2)
       .attr("fill", (d) => {
-        termssexuality = d3.set(["seksuele_identiteit",
-          "seksuele_orientatie",
-          "seksuele_minderheden",
-          "biseksuelen",
-          "homomannen",
-          "lesbische_vrouwen",
-          "seksualiteit",
-          "LHBTI"
-        ]).has(d.other_descriptions);
+        termsdisability = d3.set(["invaliden",
+                                 "blinden",
+                                 "blindheid",
+                                 "lichamelijk_gehandicapten",
+                                 "gehoorproblemen", "gehandicaptenstudies"]).has(d.other_descriptions);
+       termsgender = d3.set(["gender",
+                  "genderidentiteit",
+                  "genderisme",
+                  "genderminderheden",
+                  "vrouwen",
+                  "mannen",
+                  "transgenders",
+                  "genderdiversiteit",
+                  "genderrelaties", "genderstudies",
+                  "interseks"]).has(d.other_descriptions);
+
+      termsrace = d3.set(["culturen",
+               "etnische_groepen",
+               "zwarten",
+               "niet-witte mensen",
+               "inheemse_volken",
+               "witte",
+               "migranten",
+               "vluchtelingen",
+               "etnische_studies",
+               "institutionele_segregatie",
+               "kolonialisme",
+               "racisme"]).has(d.other_descriptions);
+
+       termssexuality = d3.set(["seksuele_identiteit",
+                     "seksuele_orientatie",
+                     "seksuele_minderheden",
+                     "biseksuelen",
+                     "homomannen",
+                     "lesbische_vrouwen",
+                     "LHBTI"]).has(d.other_descriptions);
+
+       termsstructural_oppression = d3.set(["racisme",
+                                     "seksisme",
+                                     "genderisme",
+                                     "validisme",
+                                     "klassisme",
+                                     "homofobie",
+                                     "transfobie",
+                                     "discriminatie",
+                                     "microaggressie",
+                                     "institutionele_segregatie"]).has(d.other_descriptions);
+
         // set if / else condition
         if (d.other_descriptions.length > 0) {
           // console.log(termssexuality);
-          if (termssexuality == true) {
+          if (termsdisability == true) {
             // set intersectional color
-            return "#da614e";
-          } else if (d.other_descriptions == "nederland") {
-            return "#29b8ff";
+            return "red";
+          } else if (termsgender == true) {
+            return "green";
+          } else if (termsrace == true){
+            return 'blue';
+          } else if (termssexuality == true){
+            return 'yellow';
+          } else if (termsstructural_oppression == true){
+            return 'pink';
           } else {
-            return '#40ce53';
+            return 'white';
           }
-        } else if (d.description !== '') {
+        }
+        else if (d.description !== '') {
           // return topic color
-          return '#ede';
+          return 'white';
         }
         // else {
         //   // set basic color in case both `other_description`
@@ -179,14 +225,15 @@ d3.json(`data/dataset_${filename}.json`)
       .attr("transform", "translate(0," + 0 + ")")
       .call(d3.axisBottom(x));
 
-    // give ids to the terms of x-axis
-    d3.select(".x-axis").selectAll("text").attr("id", function(d, i) {
-      return "disabilityText" + i
-    });
-    // hover on the terms of x-axis. The tooltip block show related terms,
-    // redlinks terms and sometimes definition of each term
+
 
     if (filename === 'disability') {
+      // give ids to the terms of x-axis
+      d3.select(".x-axis").selectAll("text").attr("id", function(d, i) {
+        return "disabilityText" + i
+      });
+      // hover on the terms of x-axis. The tooltip block show related terms,
+      // redlinks terms and sometimes definition of each term
       d3.select("#disabilityText0")
         .style('color', 'red')
         .on("mouseover", (d) => {
@@ -212,6 +259,49 @@ d3.json(`data/dataset_${filename}.json`)
           return tooltip.style("visibility", "hidden");
         });
     }
+//end
+
+if (filename === 'structural-oppression') {
+  // give ids to the terms of x-axis
+  d3.select(".x-axis").selectAll("text").attr("id", function(d, i) {
+    return "structuralText" + i
+  });
+  // hover on the terms of x-axis. The tooltip block show related terms,
+  // redlinks terms and sometimes definition of each term
+  // beginning of tooltip racisme
+      d3.select("#structuralText0")
+      .on("mouseover", (d) => {
+        tooltip.html(`<div class="tooltipxaxis">
+
+      <ul class="searched">
+          <li class="titles">Searched for:</li>
+          <li><s>rassendiscriminatie</s> USE racsime</li>
+          <li>ADD: xenofobie</li>
+          <li>ADD: kolonialisme</li>
+      </ul>
+      <ul class="related">
+          <li class="titles">Not searched for but related:</li>
+          <li>discriminatie </li>
+          <li>etnische verhoudingen </li>
+          <li>anti-racisme </li>
+          <li>etnocentrisme </li>
+          <li>ADD white supremacy - redlink</li>
+      </ul>
+
+  </div>`);
+        return tooltip.style("visibility", "visible");
+      })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY-10)+"px")
+            .style("left",(d3.event.pageX+10)+"px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+        }
+  // end of tooltip racisme
+//end2
 
   })
   .catch(function(error) {
