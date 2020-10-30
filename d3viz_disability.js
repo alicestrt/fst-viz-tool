@@ -2486,11 +2486,10 @@ if (filename === 'race') {
 
         // beginning of tooltip kolonialisme
 
-          d3.select("#raceText1")
+          d3.select("#raceText3")
           .style('text-decoration', 'line-through')
           .on("mouseover", (d) => {
             tooltip.html(`<div class="tooltipxaxis">
-      USE witte
       <ul class="searched">
           <li class="titles">Searched for:</li>
           <li>ethnocentrisme </li>
@@ -2518,7 +2517,7 @@ if (filename === 'race') {
 
             // beginning of tooltip vluchtelingen
 
-              d3.select("#raceText2")
+              d3.select("#raceText10")
               .on("mouseover", (d) => {
                 tooltip.html(`
   <div class="tooltipxaxis">
@@ -2555,7 +2554,7 @@ if (filename === 'race') {
 
                 // beginning of tooltip racisme
 
-                  d3.select("#raceText3")
+                  d3.select("#raceText4")
                   .on("mouseover", (d) => {
                     tooltip.html(`
                       <div class="tooltipxaxis">
@@ -2591,7 +2590,7 @@ if (filename === 'race') {
 
                     // beginning of tooltip etnische groepen
 
-                      d3.select("#raceText4")
+                      d3.select("#raceText5")
                       .on("mouseover", (d) => {
                         tooltip.html(`
                           <div class="tooltipxaxis">
@@ -2639,7 +2638,7 @@ if (filename === 'race') {
 
                         // beginning of tooltip migranten
 
-                          d3.select("#raceText5")
+                          d3.select("#raceText6")
                           .on("mouseover", (d) => {
                             tooltip.html(`
                               <div class="tooltipxaxis">
@@ -2680,7 +2679,7 @@ if (filename === 'race') {
 
                             // beginning of tooltip inheemse volken
 
-                              d3.select("#raceText6")
+                              d3.select("#raceText7")
                               .on("mouseover", (d) => {
                                 tooltip.html(`
 
@@ -2723,7 +2722,7 @@ if (filename === 'race') {
 
                                 // beginning of tooltip culturen
 
-                                  d3.select("#raceText7")
+                                  d3.select("#raceText8")
                                   .on("mouseover", (d) => {
                                     tooltip.html(`
                                       <div class="tooltipxaxis">
@@ -2762,7 +2761,7 @@ if (filename === 'race') {
                                     // end of tooltip culturen
                                     // beginning of tooltip etnische studies
 
-                                      d3.select("#raceText8")
+                                      d3.select("#raceText9")
                                       .on("mouseover", (d) => {
                                         tooltip.html(`
                                           <div class="tooltipxaxis">
@@ -2795,12 +2794,14 @@ if (filename === 'race') {
                                         });
                                         // end of tooltip etnische studies
 
-                                        // beginning of tooltip witte
+                                        // beginning of tooltip blanken
 
-                                          d3.select("#raceText10")
+                                          d3.select("#raceText1")
                                           .on("mouseover", (d) => {
                                             tooltip.html(`
                                               <div class="tooltipxaxis">
+                                              USE witte
+
 
       <ul class="related">
           <li class="titles">Not searched for but related:</li>
@@ -2819,7 +2820,7 @@ if (filename === 'race') {
                                             .on("mouseout", () => {
                                               return tooltip.style("visibility", "hidden");
                                             });
-                                            // end of tooltip witte
+                                            // end of tooltip blanken
 
                                             // beginning of tooltip institutionele segregatie
 
