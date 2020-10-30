@@ -103,6 +103,7 @@ border:1px black solid;
 #legend ul {
 border:1px black solid;
 min-width: 22em;
+font-size: .6em;
 }
 
 table {

@@ -9,7 +9,7 @@ let color = d3.scaleOrdinal();
 let y = d3.scalePoint();
 let x = d3.scalePoint();
 
-let width = 2000;
+let width = 2400;
 let height = 8000;
 
 let svg;
@@ -121,11 +121,11 @@ d3.json(`data/dataset_${filename}.json`)
                "zwarten",
                "niet-witte mensen",
                "inheemse_volken",
-               "witte",
+               "blanken",
                "migranten",
                "vluchtelingen",
                "etnische_studies",
-               "institutionele_segregatie",
+               "etnische_verhoudingen",
                "kolonialisme",
                "racisme"]).has(d.other_descriptions);
 
@@ -140,13 +140,13 @@ d3.json(`data/dataset_${filename}.json`)
        termsstructural_oppression = d3.set(["racisme",
                                      "seksisme",
                                      "genderisme",
-                                     "validisme",
+                                     "handicapisme",
                                      "klassisme",
                                      "homofobie",
                                      "transfobie",
                                      "discriminatie",
-                                     "microaggressie",
-                                     "institutionele_segregatie"]).has(d.other_descriptions);
+                                     "pesten",
+                                     "etnische_verhoudingen"]).has(d.other_descriptions);
 
         // set if / else condition
         if (d.other_descriptions.length > 0) {
@@ -303,6 +303,7 @@ if (filename === 'disability') {
   //begin tooltip handicaps
       d3.select("#disabilityText7")
         .style('color', 'red')
+        .style('text-decoration', 'line-through')
         .on("mouseover", (d) => {
           tooltip.html(`
 <div class="tooltipxaxis">
@@ -345,6 +346,7 @@ USE [to be filled in] (red link)
   //begin tooltip handicapisme
       d3.select("#disabilityText8")
         .style('color', 'red')
+        .style('text-decoration', 'line-through')
         .on("mouseover", (d) => {
           tooltip.html(`<div class="tooltipxaxis">
           USE validisme (red-link)
@@ -430,6 +432,7 @@ USE [to be filled in] (red link)
   //begin tooltip visuele handicaps
       d3.select("#disabilityText9")
         .style('color', 'red')
+        .style('text-decoration', 'line-through')
         .on("mouseover", (d) => {
           tooltip.html(`<div class="tooltipxaxis">
           USE [to be filled in] (red link)
@@ -656,6 +659,8 @@ USE [to be filled in] (red link)
 
   //begin tooltip lichamelijke_stoornissen
       d3.select("#disabilityText6")
+      .style('color', 'red')
+      .style('text-decoration', 'line-through')
         .on("mouseover", (d) => {
           tooltip.html(`
 <div class="tooltipxaxis">
@@ -718,6 +723,7 @@ USE [to be filled] (red link)
    //begin tooltip lichamelijke_handicaps
       d3.select("#disabilityText10")
         .style('color', 'red')
+        .style('text-decoration', 'line-through')
         .on("mouseover", (d) => {
           tooltip.html(`
 <div class="tooltipxaxis">
@@ -764,6 +770,7 @@ USE [to be filled] (red link)
    //begin tooltip gehoorproblemen
       d3.select("#disabilityText11")
         .style('color', 'red')
+        .style('text-decoration', 'line-through')
         .on("mouseover", (d) => {
           tooltip.html(`
 <div class="tooltipxaxis">
@@ -2346,7 +2353,7 @@ if (filename === 'structural-oppression') {
       .style("text-decoration", "line-through")
       .on("mouseover", (d) => {
         tooltip.html(`<div class="tooltipxaxis">
-
+      USE microaggressie
       <ul class="def">
           <li>def: SN een vorm van gedrag waarbij personen </li>
           <li>herhaaldelijk en gedurende langere </li>
@@ -2394,7 +2401,7 @@ if (filename === 'structural-oppression') {
       .style("text-decoration", "line-through")
       .on("mouseover", (d) => {
         tooltip.html(`<div class="tooltipxaxis">
-
+        USE institutionele segregatie (redlink)
       <ul class="def">
           <li><s>def: SN verhoudingen tussen etnische groepen</s> institutionele segregatie</li>
           <li><s>UF rassenverhoudingen</s> USE institutionele segregatie (redlink)</li>
@@ -2437,6 +2444,7 @@ if (filename === 'race') {
   });
   // hover on the terms of x-axis. The tooltip block show related terms,
   // redlinks terms and sometimes definition of each term
+
   // beginning of tooltip zwarten
 
       d3.select("#raceText0")
@@ -2479,9 +2487,10 @@ if (filename === 'race') {
         // beginning of tooltip kolonialisme
 
           d3.select("#raceText1")
+          .style('text-decoration', 'line-through')
           .on("mouseover", (d) => {
             tooltip.html(`<div class="tooltipxaxis">
-
+      USE witte
       <ul class="searched">
           <li class="titles">Searched for:</li>
           <li>ethnocentrisme </li>
@@ -2814,11 +2823,12 @@ if (filename === 'race') {
 
                                             // beginning of tooltip institutionele segregatie
 
-                                              d3.select("#raceText11")
+                                              d3.select("#raceText2")
+                                              .style('text-decoration', 'line-through')
                                               .on("mouseover", (d) => {
                                                 tooltip.html(`
                                                   <div class="tooltipxaxis">
-
+      USE institutionele segregatie
       <ul class="searched">
           <li class="titles">Searched for:</li>
           <li>anti-semitisme </li>
