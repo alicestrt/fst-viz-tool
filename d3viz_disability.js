@@ -92,11 +92,19 @@ d3.json(`data/dataset_${filename}.json`)
       .attr("x", width / 2)
       .attr("y", height / 2)
       .attr("fill", (d) => {
-        termsdisability = d3.set(["invaliden",
-                                 "blinden",
-                                 "blindheid",
+        termsdisability = d3.set(["gehandicapten",
+                                 "handicaps",
+                                 "handicapisme",
+                                 "visueel_gehandicapten",
+                                 "visuele_handicaps",
                                  "lichamelijk_gehandicapten",
-                                 "gehoorproblemen", "gehandicaptenstudies"]).has(d.other_descriptions);
+                                 "lichamelijke_handicaps",
+                                 "auditief_gehandicapten",
+                                 "doven", "gehoorproblemen",
+                                 "verstandelijk_gehandicapten",
+                                 "gehandicaptenstudies",
+                                 "lichamelijke_stoornissen",
+                                 "lichamelijke gezondheid"]).has(d.other_descriptions);
        termsgender = d3.set(["gender",
                   "genderidentiteit",
                   "genderisme",
@@ -235,26 +243,50 @@ d3.json(`data/dataset_${filename}.json`)
 
 
 
-    if (filename === 'disability') {
+
+//end
+
+if (filename === 'disability') {
       // give ids to the terms of x-axis
       d3.select(".x-axis").selectAll("text").attr("id", function(d, i) {
         return "disabilityText" + i
       });
       // hover on the terms of x-axis. The tooltip block show related terms,
       // redlinks terms and sometimes definition of each term
-      d3.select("#disabilityText0")
+
+      //begin tooltip gehandicapten
+
+      d3.select("#disabilityText3")
         .on("mouseover", (d) => {
-          tooltip.html(`<div class="tooltipxaxis">
-        <ul class="synonyms">
-        <li>UF <s>homovrouwen</s></li>
-        <li>USE lesbische vrouwen</li>
-        </ul>
-        <ul class="redterms">
-        <li class="searched">searched for:</li>
-        <li>ADD UF vrouwen die seks hebben met vrouwen</li>
-        <li>UF lesbiennes USE lesbische vrouwen (red link)</li>
-        <li>UF potten  USE lesbische vrouwen</li>
-        </ul></div>`);
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>mensen met een beperking <s>USE gehandicapten</s> (red link) </li>
+
+    <li>mensen met een handicap <s>USE gehandicapten</s> (red link) </li>
+
+    <li>lichamelijk gehandicapten </li>
+
+    <li>verstandelijk gehandicapten </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>gehandicaptenstudies </li>
+
+    <li><s>handicapisme</s> USE validisme (red link) </li>
+
+    </ul>
+
+</div>
+`);
           return tooltip.style("visibility", "visible");
         })
         .on("mousemove", () => {
@@ -265,8 +297,1772 @@ d3.json(`data/dataset_${filename}.json`)
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
         });
-    }
-//end
+
+  // end of tooltip gehandicapten
+
+  //begin tooltip handicaps
+      d3.select("#disabilityText7")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+USE [to be filled in] (red link)
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>lichamelijke handicaps </li>
+
+    <li><s>ontwikkelingsstoornissen</s> [to be filled in] (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>gehandicaptenstudies </li>
+
+    </ul>
+
+</div>
+`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip handicaps
+
+
+  //begin tooltip handicapisme
+      d3.select("#disabilityText8")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+          USE validisme (red-link)
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>UF discriminatie van gehandicapten </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>discriminatie </li>
+
+    <li>gehandicapten </li>
+
+    </ul>
+
+</div>
+`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip handicapisme
+
+
+  //begin tooltip visueel gehandicapten
+      d3.select("#disabilityText1")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>mensen met een visuele beperking </li>
+
+    <li>mensen met een visuele handicap </li>
+
+    <li>blinden </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>lichamelijk gehandicapten </li>
+
+    <li><s>visuele handicaps</s> USE [to be filled in] (red link) </li>
+
+    </ul>
+
+</div>
+`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip gender visueel gehandicapten
+
+
+  //begin tooltip visuele handicaps
+      d3.select("#disabilityText9")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+          USE [to be filled in] (red link)
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>visuele beperkingen </li>
+
+    <li>blindheid </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li><s>lichamelijke handicaps</s> USE [to be filled in] (red link) </li>
+
+    <li>visueel gehandicapten </li>
+
+    </ul>
+
+</div>
+`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip visuele handicaps
+
+
+  //begin tooltip lichamelijk gehandicapten
+      d3.select("#disabilityText2")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>invaliden</s> USE lichamelijk gehandicapten </li>
+
+    <li>motorisch gehandicapten <s>USE lichamelijk gehandicapten</s> (red link)</li>
+
+    <li>auditief gehandicapten </li>
+
+    <li>visueel gehandicapten </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>gehandicapten </li>
+
+    <li><s>lichamelijke handicaps</s> USE [to be filled in] (red link)</li>
+
+    </ul>
+
+</div>
+`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip lichamelijk gehandicapten
+
+
+
+  //begin tooltip auditief gehandicapten
+      d3.select("#disabilityText0")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>mensen met hoorproblemen</s> USE auditief gehandicapten</li>
+
+    <li>slechthorenden</li>
+
+    <li><s>doven</s> (red link)</li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>lichamelijk gehandicapten </li>
+
+    <li>gehoorproblemen </li>
+
+    <li>doven (red link) </li>
+
+    </ul>
+
+</div>
+`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip auditief gehandicapten
+
+
+  //begin tooltip verstandelijk gehandicapten
+      d3.select("#disabilityText4")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>geestelijk gehandicapten</s> USE verstandelijk gehandicapten </li>
+
+    <li>mensen met cognitieve beperkingen USE <s>verstandelijk gehandicapten</s>  [to be filled in] (red link) </li>
+
+    <li><s>mensen met een verstandelijke beperking</s> USE verstandelijk gehandicapten </li>
+
+    <li>mensen met een verstandelijke handicap USE <s>verstandelijk gehandicapten </s> [to be filled in] (red link)</li>
+
+    <li><s>verstandelijk beperkten</s> USE verstandelijk gehandicapten </li>
+
+    <li><s>zwakzinnigen</s> USE verstandelijk gehandicapten </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>gehandicapten </li>
+
+    </ul>
+
+</div>
+`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip verstandelijk gehandicapten
+
+
+  //begin tooltip doven
+      d3.select("#disabilityText5")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>dove mensen </li>
+
+    <li>slechthorenden </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>auditief gehandicapten </li>
+
+    <li>doofheid </li>
+
+    <li>gebarentaal </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip doven
+
+
+  //begin tooltip lichamelijke_stoornissen
+      d3.select("#disabilityText6")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+USE [to be filled] (red link)
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>lichamelijke aandoeningen USE <s>lichamlijke stornissen</s> [to be filled] (red link) </li>
+
+    <li><s>somatische stoornissen</s> USE [to be filled] (red link) </li>
+
+    <li>allergieën </li>
+
+    <li>chronisch vermoeidheidssyndroom </li>
+
+    <li>gynaecologische aandoeningen </li>
+
+    <li>hemofilie </li>
+
+    <li>kanker </li>
+
+    <li>MS </li>
+
+    <li>scabies </li>
+
+    <li>soa's </li>
+
+    <li>tuberculose </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>ziekten </li>
+
+    <li>besmetting </li>
+
+    <li><s>lichamelijke handicaps</s> USE [to be filled] (red link) </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip lichamelijke_stoornissen
+
+   //begin tooltip lichamelijke_handicaps
+      d3.select("#disabilityText10")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+USE [to be filled] (red link)
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>gehoorproblemen </li>
+
+    <li><s>visuele handicaps</s> USE [to be filled in] (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li><s>handicaps</s> USE [to be filled in] (red link)</li>
+
+    <li>lichamelijk gehandicapten </li>
+
+    <li>lichamelijke gezondheid </li>
+
+    <li><s>lichamelijke stoornissen</s> USE [to be filled in] (red link)</li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip lichamelijke_handicaps
+
+   //begin tooltip gehoorproblemen
+      d3.select("#disabilityText11")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+USE <s>auditieve handicaps</s>[to be filled] (red link)
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>gehoorstoornissen</s> USE [to be filled in](red link)</li>
+
+    <li>doofheid </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li><s>lichamelijke handicaps</s> USE [to be filled in] (red link)</li>
+
+    <li>auditief gehandicapten </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip gehoorproblemen
+
+   //begin tooltip gehandicaptenstudies
+      d3.select("#disabilityText12")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>wetenschappelijke disciplines </li>
+
+    <li>gehandicapten </li>
+
+    <li><s>handicaps</s> USE [to be filled in] (red link) </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip gehandicaptenstudies
+
+   //begin tooltip lichamelijke gezondheid
+      d3.select("#disabilityText13")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>fitness </li>
+
+    <li> </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>gezondheid </li>
+
+    <li><s>lichamelijke handicaps</s> USE [to be filled] (red link) </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip lichamelijke gezondheid
+}
+
+//end disability
+
+
+
+if (filename === 'sexuality') {
+      // give ids to the terms of x-axis
+      d3.select(".x-axis").selectAll("text").attr("id", function(d, i) {
+        return "sexualityText" + i
+      });
+      // hover on the terms of x-axis. The tooltip block show related terms,
+      // redlinks terms and sometimes definition of each term
+      d3.select("#sexualityText0")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>flikkers</s> USE homomannen </li>
+
+    <li>mannen die seks hebben met mannen </li>
+
+    <li>homo-ouderen </li>
+
+    <li>kastnichten </li>
+
+    <li>ADD chubs (homomannen) (red link) </li>
+
+    <li>ADD faeries (homomannen)(red link) </li>
+
+    <li>ADD katoeys (red link) </li>
+
+    <li>ADD homo-identiteit (red link) </li>
+
+    <li>ADD homocultuur(red link) </li>
+
+    <li>ADD homoseksualiteit (red link) </li>
+
+    <li>ADD homostudies(red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>mannen </li>
+
+    <li>seksuele minderheden </li>
+
+    <li>homo-identiteit </li>
+
+    <li>homojongens </li>
+
+    <li>homopersonages </li>
+
+    <li>ouders van homomannen </li>
+
+    <li>partners van homomannen </li>
+
+    <li>verhoudingen tussen lesbische vrouwen en homomannen </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip homomannen
+
+  //begin tooltip lesbische vrouwen
+      d3.select("#sexualityText1")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>homovrouwen</s> USE lesbische vrouwen </li>
+
+    <li>ADD vrouwen die seks hebben met vrouwen (red link) </li>
+
+    <li>lesbiennes <s>USE lesbische vrouwen</s> (red link) </li>
+
+    <li><s>potten</s> USE lesbische vrouwen </li>
+
+    <li>butches </li>
+
+    <li>femmes </li>
+
+    <li>kastpotten </li>
+
+    <li>lesbische ouderen </li>
+
+    <li>ADD mati (red link) </li>
+
+    <li>ADD lesbisch feminisme (red link) </li>
+
+    <li>ADD lesbianisme (red link) </li>
+
+    <li>ADD lesbische beweging (red link) </li>
+
+    <li>ADD lesbische cultuur (red link) </li>
+
+    <li>ADD lesbische gemeenschap (red link) </li>
+
+    <li>ADD lesbische identiteit (red link) </li>
+
+    <li>ADD lesbische studies (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>seksuele minderheden </li>
+
+    <li>vrouwen </li>
+
+    <li>lesbische identiteit </li>
+
+    <li>lesbische meiden </li>
+
+    <li>lesbische personages </li>
+
+    <li>ouders van lesbische vrouwen </li>
+
+    <li>partners van lesbische vrouwen </li>
+
+    <li>tribadisme </li>
+
+    <li>verhoudingen tussen lesbische vrouwen en homomannen </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip lesbische_vrouwen
+
+
+  //begin tooltip seksuele identiteit
+      d3.select("#sexualityText2")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>biseksuele identiteit </li>
+
+    <li><s>heteroseksuele identiteit</s> (exclude) (red link) </li>
+
+    <li>homo-identiteit </li>
+
+    <li>lesbische identiteit </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>identiteit </li>
+
+    <li>genderidentiteit </li>
+
+    <li>LHBTI </li>
+
+    <li>seksuele diversiteit </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip seksuele identiteit
+
+
+  //begin tooltip seksuele minderheden
+      d3.select("#sexualityText3")
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>biseksuelen </li>
+
+    <li>homomannen </li>
+
+    <li>katoeys </li>
+
+    <li>lesbische vrouwen </li>
+
+    <li>mannen die seks hebben met mannen </li>
+
+    <li>two-spirit people </li>
+
+    <li>vrouwen die seks hebben met vrouwen </li>
+
+    <li>ADD mati (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>genderminderheden </li>
+
+    <li>LHBTI </li>
+
+    <li>seksualiteit </li>
+
+    <li>seksuele oriëntatie </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip seksuele minderheden
+
+
+  //begin tooltip biseksuelen
+      d3.select("#sexualityText4")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>biseksuele mensen</s> USE biseksuelen </li>
+
+    <li>biseksuele dochters </li>
+
+    <li>biseksuele jongeren </li>
+
+    <li>biseksuele mannen </li>
+
+    <li>biseksuele ouderen </li>
+
+    <li>biseksuele vrouwen </li>
+
+    <li>biseksuele zonen </li>
+
+    <li>ADD biseksuele identiteit (red link) </li>
+
+    <li>ADD biseksualiteit(red link) </li>
+
+    <li>ADD biseksuele gemeenschap (red link) </li>
+
+    <li>ADD bi-beweging (red link) </li>
+
+    <li>ADD biseksuele studies (red link)</li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>seksuele minderheden </li>
+
+    <li>biseksuele gezinnen </li>
+
+    <li>biseksuele paren </li>
+
+    <li>biseksuele personages </li>
+
+    <li>biseksuele rechten </li>
+
+    <li>ouders van biseksuelen </li>
+
+    <li>partners van biseksuelen </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip biseksuelen
+
+
+  //begin tooltip seksuele orientatie
+      d3.select("#sexualityText5")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>seksuele geaardheid</s> USE seksuele oriëntatie </li>
+
+    <li><s>seksuele objectkeuze</s> USE seksuele oriëntatie </li>
+
+    <li><s>seksuele voorkeur</s> USE seksuele oriëntatie </li>
+
+    <li>aseksualiteit </li>
+
+    <li>biseksualiteit </li>
+
+    <li>efebofilie </li>
+
+    <li>fetischisme </li>
+
+    <li>gerontofilie </li>
+
+    <li>hebefilie </li>
+
+    <li><s>heteroseksualiteit</s> (exclude) (red link) </li>
+
+    <li>homoseksualiteit </li>
+
+    <li>lesbianisme </li>
+
+    <li>necrofilie </li>
+
+    <li>pedoseksualiteit </li>
+
+    <li>zoöfilie </li>
+
+    <li>ADD demiseksualiteit (red link) </li>
+
+    <li>ADD Gray Sexuality (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>RT gaydar </li>
+
+    <li>LHBTI </li>
+
+    <li>seksuele diversiteit </li>
+
+    <li>seksuele heroriëntatie </li>
+
+    <li>seksuele minderheden </li>
+
+    <li>seksuele relaties </li>
+
+    <li>situationeel seksueel gedrag </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip lesbische_vrouwen
+
+
+  //begin tooltip LHBTI
+      d3.select("#sexualityText6")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`
+<div class="tooltipxaxis">
+
+    <ul class="def">
+
+    <li>def. gebruik alleen voor lesbisch+homo+ </li>
+
+    <li>bi+transgender+interseks en in </li>
+
+    <li>combinatie met andere termen </li>
+
+    </ul>
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>queer </li>
+
+    <li>LHBT </li>
+
+    <li>ADD LHBTI-gemeenschap (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>genderdiversiteit </li>
+
+    <li>genderidentiteit </li>
+
+    <li>genderminderheden </li>
+
+    <li>interseks </li>
+
+    <li>LHBTI-beleid </li>
+
+    <li>LHBTI-beweging </li>
+
+    <li>LHBTI-rechten </li>
+
+    <li>seksuele diversiteit </li>
+
+    <li>seksuele identiteit </li>
+
+    <li>seksuele minderheden </li>
+
+    <li>seksuele oriëntatie </li>
+
+    <li>transgenderisme </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip lhbti
+     }
+//end sexuality
+
+if (filename === 'gender') {
+      // give ids to the terms of x-axis
+      d3.select(".x-axis").selectAll("text").attr("id", function(d, i) {
+        return "genderText" + i
+      });
+      // hover on the terms of x-axis. The tooltip block show related terms,
+      // redlinks terms and sometimes definition of each term
+      d3.select("#genderText0")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>biseksuele vrouwen</li>
+
+    <li><s>heterovrouwen</s> (exclude) (red link)</li>
+
+    <li>lesbische vrouwen</li>
+
+    <li>plattelandsvrouwen</li>
+
+    <li>ADD transvrouwen (redlink)</li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>vrouwen die seks hebben met vrouwen </li>
+
+    <li>meiden </li>
+
+    <li><s>transvrouwen</s></li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip vrouwen
+
+  //begin tooltip mannen
+      d3.select("#genderText1")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>biseksuele mannen </li>
+
+    <li><s>heteromannen</s> (exclude) (red link)</li>
+
+    <li>homomannen </li>
+
+    <li>mannen die seks hebben met mannen </li>
+
+    <li>ADD transmannen (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li><s>transmannen </s></li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip mannen
+
+
+  //begin tooltip transgenders
+      d3.select("#genderText2")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="def">
+
+    <li>def. mensen wiens genderidentiteit en/of </li>
+
+    <li>expressie afwijkt van de sekse die </li>
+
+    <li>hen bij de geboorte is toegewezen </li>
+
+    </ul>
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>transgendermensen </li>
+
+    <li>transgenderjongeren </li>
+
+    <li>transgenderkinderen </li>
+
+    <li>transgenderouderen </li>
+
+    <li>transmannen </li>
+
+    <li>transvrouwen </li>
+
+    <li>ADD gender non-binariteit (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>genderminderheden </li>
+
+    <li>anti-transgender geweld </li>
+
+    <li>ouders van transgenders </li>
+
+    <li>partners van transgenders </li>
+
+    <li>passing </li>
+
+    <li>stealth </li>
+
+    <li>transgenderbeweging </li>
+
+    <li>transgendergemeenschap </li>
+
+    <li>transgendergezinnen </li>
+
+    <li>transgenderidentiteit </li>
+
+    <li>transgenderisme </li>
+
+    <li>transgenderpersonages </li>
+
+    <li>transgenderrechten </li>
+
+    <li>vervolging van transgenders </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip transgenders
+
+
+  //begin tooltip gender identiteit
+      d3.select("#genderText3")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="def">
+
+    <li>def. diepgevoelde persoonlijke over- </li>
+
+    <li>tuiging te behoren tot het mannelijk </li>
+
+    <li>geslacht of het vrouwelijk geslacht, </li>
+
+    <li>tot beide of tot geen van beide </li>
+
+    </ul>
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>genderqueer identiteit </li>
+
+    <li>gendervariante identiteit </li>
+
+    <li>genderdysforie </li>
+
+    <li>gender-fluid </li>
+
+    <li>transgenderidentiteit </li>
+
+    <li>ADD gender non-binariteit (red link) </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>identiteit </li>
+
+    <li>androgynie </li>
+
+    <li>gender </li>
+
+    <li>genderdiversiteit </li>
+
+    <li>genderminderheden </li>
+
+    <li>genderrol </li>
+
+    <li>LHBTI </li>
+
+    <li>mannelijkheid </li>
+
+    <li>seksuele identiteit </li>
+
+    <li>transgenderisme </li>
+
+    <li>transitie </li>
+
+    <li>vrouwelijkheid </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip gender identiteit
+
+
+  //begin tooltip interseks
+      d3.select("#genderText4")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="def">
+
+    <li>def. overkoelende term die vele </li>
+
+    <li>verschillende vormen van seksuele </li>
+
+    <li>anatomie bestrijkt die niet als </li>
+
+    <li>standaard worden beschouwd voor </li>
+
+    <li>mannen of vrouwen, waaronder </li>
+
+    <li>chromosomale, genitale en </li>
+
+    <li>gonodale verschillen </li>
+
+    </ul>
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>differences in sex development</s> USE interseks </li>
+
+    <li><s>disorders of sex development</s> USE interseks </li>
+
+    <li><s>divergences in sex development</s> USE interseks </li>
+
+    <li><s>DSDs</s> USE interseks </li>
+
+    <li><s>hermafroditisme</s> USE interseks </li>
+
+    <li><s>interseksualiteit</s> USE interseks </li>
+
+    <li><s>variations in sex development</s> USE interseks </li>
+
+    <li><s>vsd's</s> USE interseks </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>lichamelijke kenmerken </li>
+
+    <li>androgynie </li>
+
+    <li>gender </li>
+
+    <li>interseksbeweging </li>
+
+    <li>interseksuelen </li>
+
+    <li>LHBTI </li>
+
+    <li>transgenderisme </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip interseks
+
+
+  //begin tooltip gender relaties
+      d3.select("#genderText5")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>genderverhoudingen</s> USE genderrelaties </li>
+
+    <li><s>sekseverhoudingen</s> USE genderrelaties</li>
+
+    <li>verhoudingen tussen lesbische vrouwen en homomannen </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>sociale processen </li>
+
+    <li>gender </li>
+
+    <li>gendersegregatie op de arbeidsmarkt </li>
+
+    <li>lesbisch separatisme </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip genderrelaties
+
+  //begin tooltip gender
+      d3.select("#genderText6")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>sekse <s>USE gender</s> (red link)</li>
+
+    <li>derde geslacht </li>
+
+    <li>gendertoewijzing </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>androgynie </li>
+
+    <li>eunuchen </li>
+
+    <li>gender-bending </li>
+
+    <li>genderdiversiteit </li>
+
+    <li>genderidentiteit </li>
+
+    <li>genderisme </li>
+
+    <li>genderrelaties </li>
+
+    <li>interseks </li>
+
+    <li>mannelijkheid </li>
+
+    <li>passing </li>
+
+    <li>vrouwelijkheid </li>
+
+    <li>transgenderisme </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip gender
+
+
+  //begin tooltip genderstudies
+      d3.select("#genderText7")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>biseksuele studies </li>
+
+    <li>homostudies </li>
+
+    <li>lesbische studies </li>
+
+    <li>mannenstudies </li>
+
+    <li>transgenderstudies </li>
+
+    <li>vrouwenstudies </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>wetenschappelijke disciplines </li>
+
+    <li>queer theory </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip genderstudies
+
+
+  //begin tooltip genderdiversiteit
+      d3.select("#genderText8")
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="def">
+
+    <li>def. verscheidenheid in gedrag of gender- </li>
+
+    <li>expressie dat zich niet conformeert </li>
+
+    <li>aan dominante gendernormen van </li>
+
+    <li>mannelijkheid en vrouwelijkheid </li>
+
+    </ul>
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li>gender non-conformiteit <s>USE genderdiversiteit </s> (red link)</li>
+
+    <li>genderqueerheid <s>USE genderdiversiteit</s> (red link)</li>
+
+    <li>gendervariatie </li>
+
+    <li>pangender </li>
+
+    <li>ADD gender non-binariteit (red link)</li>
+
+    <li>crossdressing </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>diversiteit </li>
+
+    <li>gender </li>
+
+    <li>genderidentiteit </li>
+
+    <li>genderminderheden </li>
+
+    <li>genderrol </li>
+
+    <li>LHBTI </li>
+
+    <li>mannelijkheid </li>
+
+    <li>vrouwelijkheid </li>
+
+    <li>transgenderisme  </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip genderdiversiteit
+
+
+  //begin tooltip genderisme
+      d3.select("#genderText9")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>genderdiscriminatie</s> USE genderisme</li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>discriminatie </li>
+
+    <li>gender </li>
+
+    <li>seksisme </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip genderisme
+
+
+  //begin tooltip gender minderheden
+      d3.select("#genderText10")
+        .style('color', 'red')
+        .on("mouseover", (d) => {
+          tooltip.html(`<div class="tooltipxaxis">
+
+    <ul class="searched">
+
+    <li class="titles">Searched for:</li>
+
+    <li><s>genderqueer oriëntatie </s> USE genderminderheden </li>
+
+    <li>genderqueers <s>USE genderminderheden</s> (red link)</li>
+
+    <li>gendervariante mensen <s>USE genderminderheden</s> (red link)</li>
+
+    <li>bi-genders </li>
+
+    <li>crossdressers </li>
+
+    <li>drag kings </li>
+
+    <li>drag queens </li>
+
+    <li>hijra's </li>
+
+    <li>katoeys </li>
+
+    <li>mahu </li>
+
+    <li>sistergirls </li>
+
+    <li>transgenders </li>
+
+    <li>transseksuelen </li>
+
+    <li>trigenders </li>
+
+    <li>two-spirit people </li>
+
+    <li>waria </li>
+
+    </ul>
+
+    <ul class="related">
+
+    <li class="titles">Not searched for but related:</li>
+
+    <li>derde geslacht </li>
+
+    <li>gender-bending </li>
+
+    <li>genderdiversiteit </li>
+
+    <li>genderidentiteit </li>
+
+    <li>genderrol </li>
+
+    <li>LHBTI </li>
+
+    <li>seksuele minderheden </li>
+
+    </ul>
+
+</div>`);
+          return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", () => {
+          return tooltip
+            .style("top", (d3.event.pageY - 10) + "px")
+            .style("left", (d3.event.pageX + 10) + "px");
+        })
+        .on("mouseout", () => {
+          return tooltip.style("visibility", "hidden");
+        });
+
+  // end of tooltip genderminderheden
+     }
+
+//end gender
+
 
 if (filename === 'structural-oppression') {
   // give ids to the terms of x-axis
