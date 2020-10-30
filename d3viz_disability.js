@@ -2487,7 +2487,6 @@ if (filename === 'race') {
         // beginning of tooltip kolonialisme
 
           d3.select("#raceText3")
-          .style('text-decoration', 'line-through')
           .on("mouseover", (d) => {
             tooltip.html(`<div class="tooltipxaxis">
       <ul class="searched">
@@ -2797,6 +2796,7 @@ if (filename === 'race') {
                                         // beginning of tooltip blanken
 
                                           d3.select("#raceText1")
+                                          .style('text-decoration', 'line-through')
                                           .on("mouseover", (d) => {
                                             tooltip.html(`
                                               <div class="tooltipxaxis">
