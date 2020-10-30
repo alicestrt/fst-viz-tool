@@ -9,7 +9,7 @@ let color = d3.scaleOrdinal();
 let y = d3.scalePoint();
 let x = d3.scalePoint();
 
-let width = 2400;
+let width = 2000;
 let height = 8000;
 
 let svg;
@@ -28,7 +28,7 @@ d3.json(`data/dataset_${filename}.json`)
           return d.description;
         }
       }))
-      .range([300, width - 50]);
+      .range([300, width - 100]);
 
     // set y-axis
     y.domain(data.map((d) => {
@@ -191,12 +191,12 @@ d3.json(`data/dataset_${filename}.json`)
     // display / hide tooltip on mouse hovering
     d3.selectAll("rect").on("mouseover", (d) => {
         tooltip.html(`Title: ${d.title} <br> Author: ${d.author}`);
-        return tooltip.style("visibility", "visible");
+        return tooltip.style("visibility", "visible").style("font-size","0.7em");
       })
       .on("mousemove", () => {
         return tooltip
-          .style("top", (d3.event.pageY - 10) + "px")
-          .style("left", (d3.event.pageX + 10) + "px");
+          .style("top", (d3.event.pageY-10) + "px")
+          .style("left",(d3.event.pageX+10)+"px");
       })
       .on("mouseout", () => {
         return tooltip.style("visibility", "hidden");
@@ -259,8 +259,8 @@ d3.json(`data/dataset_${filename}.json`)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -300,8 +300,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -342,8 +342,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -387,8 +387,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -416,8 +416,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -445,8 +445,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -473,8 +473,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -503,8 +503,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -535,8 +535,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -583,8 +583,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -623,8 +623,8 @@ if (filename === 'structural-oppression') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -672,8 +672,8 @@ if (filename === 'race') {
       })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left",(d3.event.pageX+10)+"px");
+            .style("top", (d3.event.pageY+15)+"px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -703,8 +703,8 @@ if (filename === 'race') {
           })
             .on("mousemove", () => {
               return tooltip
-                .style("top", (d3.event.pageY-10)+"px")
-                .style("left",(d3.event.pageX+10)+"px");
+                .style("top", (d3.event.pageY+15)+"px")
+                .style("left",(d3.event.pageX-170)+"px");
             })
             .on("mouseout", () => {
               return tooltip.style("visibility", "hidden");
@@ -740,8 +740,8 @@ if (filename === 'race') {
               })
                 .on("mousemove", () => {
                   return tooltip
-                    .style("top", (d3.event.pageY-10)+"px")
-                    .style("left",(d3.event.pageX+10)+"px");
+                    .style("top", (d3.event.pageY+15)+"px")
+                    .style("left",(d3.event.pageX-170)+"px");
                 })
                 .on("mouseout", () => {
                   return tooltip.style("visibility", "hidden");
@@ -776,8 +776,8 @@ if (filename === 'race') {
                   })
                     .on("mousemove", () => {
                       return tooltip
-                        .style("top", (d3.event.pageY-10)+"px")
-                        .style("left",(d3.event.pageX+10)+"px");
+                        .style("top", (d3.event.pageY+15)+"px")
+                        .style("left",(d3.event.pageX-170)+"px");
                     })
                     .on("mouseout", () => {
                       return tooltip.style("visibility", "hidden");
@@ -824,8 +824,8 @@ if (filename === 'race') {
                       })
                         .on("mousemove", () => {
                           return tooltip
-                            .style("top", (d3.event.pageY-10)+"px")
-                            .style("left",(d3.event.pageX+10)+"px");
+                            .style("top", (d3.event.pageY+15)+"px")
+                            .style("left",(d3.event.pageX-170)+"px");
                         })
                         .on("mouseout", () => {
                           return tooltip.style("visibility", "hidden");
@@ -865,8 +865,8 @@ if (filename === 'race') {
                           })
                             .on("mousemove", () => {
                               return tooltip
-                                .style("top", (d3.event.pageY-10)+"px")
-                                .style("left",(d3.event.pageX+10)+"px");
+                                .style("top", (d3.event.pageY+15)+"px")
+                                .style("left",(d3.event.pageX-170)+"px");
                             })
                             .on("mouseout", () => {
                               return tooltip.style("visibility", "hidden");
@@ -908,8 +908,8 @@ if (filename === 'race') {
                               })
                                 .on("mousemove", () => {
                                   return tooltip
-                                    .style("top", (d3.event.pageY-10)+"px")
-                                    .style("left",(d3.event.pageX+10)+"px");
+                                    .style("top", (d3.event.pageY+15)+"px")
+                                    .style("left",(d3.event.pageX-170)+"px");
                                 })
                                 .on("mouseout", () => {
                                   return tooltip.style("visibility", "hidden");
@@ -948,8 +948,8 @@ if (filename === 'race') {
                                   })
                                     .on("mousemove", () => {
                                       return tooltip
-                                        .style("top", (d3.event.pageY-10)+"px")
-                                        .style("left",(d3.event.pageX+10)+"px");
+                                        .style("top", (d3.event.pageY+15)+"px")
+                                        .style("left",(d3.event.pageX-170)+"px");
                                     })
                                     .on("mouseout", () => {
                                       return tooltip.style("visibility", "hidden");
@@ -982,8 +982,8 @@ if (filename === 'race') {
                                       })
                                         .on("mousemove", () => {
                                           return tooltip
-                                            .style("top", (d3.event.pageY-10)+"px")
-                                            .style("left",(d3.event.pageX+10)+"px");
+                                            .style("top", (d3.event.pageY+15)+"px")
+                                            .style("left",(d3.event.pageX-170)+"px");
                                         })
                                         .on("mouseout", () => {
                                           return tooltip.style("visibility", "hidden");
@@ -1008,8 +1008,8 @@ if (filename === 'race') {
                                           })
                                             .on("mousemove", () => {
                                               return tooltip
-                                                .style("top", (d3.event.pageY-10)+"px")
-                                                .style("left",(d3.event.pageX+10)+"px");
+                                                .style("top", (d3.event.pageY+15)+"px")
+                                                .style("left",(d3.event.pageX-170)+"px");
                                             })
                                             .on("mouseout", () => {
                                               return tooltip.style("visibility", "hidden");
@@ -1045,8 +1045,8 @@ if (filename === 'race') {
                                               })
                                                 .on("mousemove", () => {
                                                   return tooltip
-                                                    .style("top", (d3.event.pageY-10)+"px")
-                                                    .style("left",(d3.event.pageX+10)+"px");
+                                                    .style("top", (d3.event.pageY+15)+"px")
+                                                    .style("left",(d3.event.pageX-170)+"px");
                                                 })
                                                 .on("mouseout", () => {
                                                   return tooltip.style("visibility", "hidden");

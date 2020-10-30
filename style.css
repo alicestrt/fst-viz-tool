@@ -24,6 +24,9 @@ a {
 
 ul {
   list-style-type: none;
+  font-size: .8em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 h2  {
@@ -32,7 +35,6 @@ h2  {
   max-width: 40em;
   text-align: center;
   font-family: compagnon;
-  /* font-style: italic; */
 }
 
 .x-axis {
@@ -41,26 +43,79 @@ h2  {
 }
 
 .tooltipxaxis {
-  /* background-color: pink; */
-  margin-right: 5em;
-  margin-top: 1em;
+ min-width:20em;
   border: 1px dashed;
-  padding: 1em;
-  height:10%;
+  padding-right: 1.2em;
   font-family: compagnon;
-  font-size: 1em;
-  /* overflow-x:scroll; */
+  font-size: 1.1em;
+  overflow:scroll;
+  max-width: 20em;
+}
+
+#boxsexuality, #boxgender, #boxrace, #boxstructural, #boxdisability, #boxgeneral {
+ border: 1px solid black;
+ height: 10px;
+ width: 8px;
+ display: inline-block;
+}
+
+#boxsexuality {
+  background-color:#fb7f71;
+}
+
+#boxdisability {
+  background-color: #81afd2;
+}
+
+#boxgender {
+  background-color: #bb7fba;
+}
+
+#boxstructural {
+  background-color: #fdb264;
+}
+
+#boxrace {
+  background-color: #fccbe4;
+}
+
+#boxgeneral {
+  background-color: #b0dd6b;
+}
+
+#legend li {
+  padding-bottom: 5px;
 }
 
 .tick {
-  /* font-size: 1.2em; */
+  /* position: relative;
+  display: inline-block; */
 }
 
-.menu {
-  margin-left: 8%;
+/* #menu, #legend {
+
+} */
+
+#menu ul {
+border:1px black solid;
+}
+
+#legend ul {
+border:1px black solid;
+min-width: 22em;
+}
+
+table {
+  margin-left: 2%;
+  margin-top: 50px;
   padding-left:0.5em;
-  border:1px black solid;
-  margin-right: 79%;
+  border-collapse: separate;
+  border-spacing: 100px 0;
+  width: 100%;
+}
+
+td {
+  min-width: 11em;
 }
 
 #publishers {
@@ -68,4 +123,5 @@ h2  {
   margin-right: 92%;
   padding-right: 1em;
   padding-left: 0.5em;
+  font-size: .8em;
 }
