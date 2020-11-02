@@ -170,18 +170,44 @@ d3.json(`data/dataset_${filename}.json`)
             // } else {console.log(d.other_descriptions);return '#fccbe4';}
           }
             else {
-            return '#b0dd6b';
+              if (filename === 'disability'){
+                return '#81afd2';
+              } else if (filename === 'gender'){
+                return '#bb7fba';
+              } else if (filename === 'sexuality'){
+                return '#fb7f71';
+              } else if (filename === 'structural-oppression'){
+                return '#fdb264';
+              } else if (filename === 'race'){
+                return '#fccbe4';
+              }
           }
         }
         else if (d.description !== '') {
           if (filename === 'disability'){
             return '#81afd2';
+          } else if (filename === 'gender'){
+            return '#bb7fba';
+          } else if (filename === 'sexuality'){
+            return '#fb7f71';
+          } else if (filename === 'structural-oppression'){
+            return '#fdb264';
+          } else if (filename === 'race'){
+            return '#fccbe4';
           }
-          // return topic color
-
         }
         else {
-          // return '#b0dd6b';
+          if (filename === 'disability'){
+            return '#81afd2';
+          } else if (filename === 'gender'){
+            return '#bb7fba';
+          } else if (filename === 'sexuality'){
+            return '#fb7f71';
+          } else if (filename === 'structural-oppression'){
+            return '#fdb264';
+          } else if (filename === 'race'){
+            return '#fccbe4';
+          }
           // set basic color in case both `other_description`
           // and `description` are empty? maybe not necessary,
           // depends on the python code your write
