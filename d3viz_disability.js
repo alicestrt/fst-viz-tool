@@ -34,7 +34,7 @@ d3.json(`data/dataset_${filename}.json`)
     y.domain(data.map((d) => {
         return d.publisher;
       }))
-      .range([100, height - 50]);
+      .range([150, height - 50]);
 
     color.domain(data.map((d) => {
       if (d.description_second != "") {
