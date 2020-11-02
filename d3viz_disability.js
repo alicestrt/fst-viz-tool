@@ -2122,7 +2122,7 @@ if (filename === 'structural-oppression') {
           <li>etnische verhoudingen </li>
           <li>anti-racisme </li>
           <li>etnocentrisme </li>
-          <li>ADD white supremacy - red link</li>
+          <li>ADD white supremacy (red link_</li>
       </ul>
 
   </div>`);
@@ -2395,7 +2395,7 @@ if (filename === 'structural-oppression') {
       </ul>
       <ul class="searched">
           <li class="titles">Searched for:</li>
-          <li>cyberpesten: USE online intimidatie - red link</li>
+          <li>cyberpesten: USE online intimidatie (red link)</li>
       </ul>
       <ul class="related">
           <li class="titles">Not searched for but related:</li>
@@ -2596,7 +2596,7 @@ if (filename === 'race') {
                               <li>etnische verhoudingen </li>
                               <li>anti-racisme </li>
                               <li>etnocentrisme </li>
-                              <li>ADD white supremacy - red link</li>
+                              <li>ADD white supremacy (red link)</li>
                           </ul>
 
                       </div>
