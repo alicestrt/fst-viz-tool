@@ -358,7 +358,7 @@ USE [to be filled in] (red link)
 
     <li class="titles">Searched for:</li>
 
-    <li>UF discriminatie van gehandicapten </li>
+    <li>discriminatie van gehandicapten </li>
 
     </ul>
 
@@ -1416,8 +1416,6 @@ if (filename === 'gender') {
 
     <li>meiden </li>
 
-    <li><s>transvrouwen</s></li>
-
     </ul>
 
 </div>`);
@@ -2407,7 +2405,7 @@ if (filename === 'structural-oppression') {
         USE institutionele segregatie (red link)
       <ul class="def">
           <li><s>def: SN verhoudingen tussen etnische groepen</s> institutionele segregatie</li>
-          <li><s>UF rassenverhoudingen</s> USE institutionele segregatie (red link)</li>
+          <li><s>rassenverhoudingen</s> USE institutionele segregatie (red link)</li>
       </ul>
       <ul class="searched">
           <li class="titles">Searched for:</li>
@@ -2695,7 +2693,7 @@ if (filename === 'race') {
                               </ul>
                               <ul class="searched">
                                   <li class="titles">Searched for:</li>
-                                  <li>UF natuurvolken </li>
+                                  <li>natuurvolken </li>
                                   <li>aboriginals </li>
                                   <li>indianen </li>
                                   <li>maori's </li>
