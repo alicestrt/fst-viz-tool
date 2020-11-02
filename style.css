@@ -61,7 +61,7 @@ h3  {
   border: 1px dashed;
   padding-right: 1.2em;
   font-family: compagnon;
-  font-size: 1.1em;
+  font-size: 1rem;
   overflow:scroll;
   max-width: 20em;
 }
@@ -101,9 +101,9 @@ h3  {
   padding-bottom: 5px;
 }
 
-.tick {
-  /* position: relative;
-  display: inline-block; */
+.tick:hover{
+font-style: italic;
+/* font-weight: bold; */
 }
 
 /* #menu, #legend {
