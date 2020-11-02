@@ -198,7 +198,7 @@ d3.json(`data/dataset_${filename}.json`)
 
     // display / hide tooltip on mouse hovering
     d3.selectAll("rect").on("mouseover", (d) => {
-        tooltip.html(`Title: ${d.title} <br> Author: ${d.author}`);
+        tooltip.html(`Title: ${d.title} <br> Author: ${d.author} <br> Other descriptions from this cluster: ${d.description_second} <br> Other descriptions: ${d.other_descriptions}`);
         return tooltip.style("visibility", "visible").style("font-size","0.7em");
       })
       .on("mousemove", () => {
