@@ -37,6 +37,20 @@ h2  {
   font-family: compagnon;
 }
 
+h1  {
+  top: 0px;
+  margin: 0 auto 0.5em auto;
+  font-size: 1.4em;
+  text-align: center;
+  font-family: compagnon;
+}
+
+h3  {
+  margin: 0 auto;
+  font-size: 0.8em;
+  font-family: compagnon;
+}
+
 .x-axis {
   position: fixed;
   background-color:transparent;
@@ -102,17 +116,18 @@ border:1px black solid;
 
 #legend ul {
 border:1px black solid;
-min-width: 22em;
+min-width: 30em;
 font-size: .6em;
 }
 
 table {
   margin-left: 2%;
-  margin-top: 50px;
+  margin-top: 0px;
   padding-left:0.5em;
   border-collapse: separate;
   border-spacing: 100px 0;
   width: 100%;
+  /* position: fixed; */
 }
 
 td {
@@ -121,7 +136,7 @@ td {
 
 #publishers {
   border:1px black solid;
-  margin-right: 92%;
+  margin-right: 85%;
   padding-right: 1em;
   padding-left: 0.5em;
   font-size: .8em;

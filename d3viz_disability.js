@@ -174,11 +174,14 @@ d3.json(`data/dataset_${filename}.json`)
           }
         }
         else if (d.description !== '') {
+          if (filename === 'disability'){
+            return '#81afd2';
+          }
           // return topic color
-          return '#b0dd6b';
+
         }
         else {
-          return '#b0dd6b';
+          // return '#b0dd6b';
           // set basic color in case both `other_description`
           // and `description` are empty? maybe not necessary,
           // depends on the python code your write
@@ -252,7 +255,7 @@ if (filename === 'disability') {
         return "disabilityText" + i
       });
       // hover on the terms of x-axis. The tooltip block show related terms,
-      // redlinks terms and sometimes definition of each term
+      // red links terms and sometimes definition of each term
 
       //begin tooltip gehandicapten
 
@@ -895,7 +898,7 @@ if (filename === 'sexuality') {
         return "sexualityText" + i
       });
       // hover on the terms of x-axis. The tooltip block show related terms,
-      // redlinks terms and sometimes definition of each term
+      // red links terms and sometimes definition of each term
       d3.select("#sexualityText0")
         .on("mouseover", (d) => {
           tooltip.html(`
@@ -1384,7 +1387,7 @@ if (filename === 'gender') {
         return "genderText" + i
       });
       // hover on the terms of x-axis. The tooltip block show related terms,
-      // redlinks terms and sometimes definition of each term
+      // red links terms and sometimes definition of each term
       d3.select("#genderText0")
         .on("mouseover", (d) => {
           tooltip.html(`<div class="tooltipxaxis">
@@ -1401,7 +1404,7 @@ if (filename === 'gender') {
 
     <li>plattelandsvrouwen</li>
 
-    <li>ADD transvrouwen (redlink)</li>
+    <li>ADD transvrouwen (red link)</li>
 
     </ul>
 
@@ -2077,7 +2080,7 @@ if (filename === 'structural-oppression') {
     return "structuralText" + i
   });
   // hover on the terms of x-axis. The tooltip block show related terms,
-  // redlinks terms and sometimes definition of each term
+  // red links terms and sometimes definition of each term
   // beginning of tooltip racisme
       d3.select("#structuralText0")
       .on("mouseover", (d) => {
@@ -2095,7 +2098,7 @@ if (filename === 'structural-oppression') {
           <li>etnische verhoudingen </li>
           <li>anti-racisme </li>
           <li>etnocentrisme </li>
-          <li>ADD white supremacy - redlink</li>
+          <li>ADD white supremacy - red link</li>
       </ul>
 
   </div>`);
@@ -2127,7 +2130,7 @@ if (filename === 'structural-oppression') {
           <li><s>discriminatie van homo's</s> USE homofobie</li>
           <li><s>homo-aversie </s> USE homofobie</li>
           <li><s>homodiscriminatie </s> USE homofobie</li>
-          <li><s>homonegativiteit </s> USE homofobie (redlink)</li>
+          <li><s>homonegativiteit </s> USE homofobie (red link)</li>
           <li>geïnternaliseerde homofobie </li>
       </ul>
       <ul class="related">
@@ -2401,10 +2404,10 @@ if (filename === 'structural-oppression') {
       .style("text-decoration", "line-through")
       .on("mouseover", (d) => {
         tooltip.html(`<div class="tooltipxaxis">
-        USE institutionele segregatie (redlink)
+        USE institutionele segregatie (red link)
       <ul class="def">
           <li><s>def: SN verhoudingen tussen etnische groepen</s> institutionele segregatie</li>
-          <li><s>UF rassenverhoudingen</s> USE institutionele segregatie (redlink)</li>
+          <li><s>UF rassenverhoudingen</s> USE institutionele segregatie (red link)</li>
       </ul>
       <ul class="searched">
           <li class="titles">Searched for:</li>
@@ -2443,7 +2446,7 @@ if (filename === 'race') {
     return "raceText" + i
   });
   // hover on the terms of x-axis. The tooltip block show related terms,
-  // redlinks terms and sometimes definition of each term
+  // red links terms and sometimes definition of each term
 
   // beginning of tooltip zwarten
 
@@ -2527,7 +2530,7 @@ if (filename === 'race') {
       </ul>
       <ul class="related">
           <li class="titles">Not searched for but related:</li>
-          <li><s>asielzoekerscentra </s> USE vluchtelingencentrum (redlink)</li>
+          <li><s>asielzoekerscentra </s> USE vluchtelingencentrum (red link)</li>
           <li>asielmigratie </li>
           <li><s>illegalen </s> USE ongedocumenteerde- (red link)</li>
           <li>immigratiebeleid </li>
@@ -2569,7 +2572,7 @@ if (filename === 'race') {
                               <li>etnische verhoudingen </li>
                               <li>anti-racisme </li>
                               <li>etnocentrisme </li>
-                              <li>ADD white supremacy - redlink</li>
+                              <li>ADD white supremacy - red link</li>
                           </ul>
 
                       </div>
