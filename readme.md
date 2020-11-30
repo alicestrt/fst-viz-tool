@@ -1,7 +1,11 @@
 fst viz tool
 ============
 
-small visualization tool built by the design team during Digital Methods Summer School 2019, Amsterdam.
+A fork of the small visualization tool built by the design team during Digital Methods Summer School 2019, Amsterdam.
+
+The visualisation tool was developed further by Alice Strete and Angeliki Diakrousi, with the help of André Fincato as part of the [Feminist Search Tools] (https://fst.swummoq.net/) project.
+
+The tool is built using [D3 js] (https://d3js.org/).
 
 ## usage
 
@@ -13,7 +17,7 @@ to do that, open a terminal and check your python version
 python -V
 ```
 
-if you have python 3, do
+if you have python 3, do (inside the project folder)
 
 ```
 python -m http.server
@@ -58,7 +62,7 @@ eg
 python import-data.py ./data/dataset_selection.json sexuality
 ```
 
-this will automatically output the new sub-dataset to the `./data/` folder, using the `topic` argument to save the file. with the example above, the file will be saved as `datasete_sexuality.json`.
+this will automatically output the new sub-dataset to the `./data/` folder, using the `topic` argument to save the file. with the example above, the file will be saved as `dataset_sexuality.json`.
 
 ## setup
 
@@ -91,5 +95,3 @@ each record in the `json` array *needs* to follow this structure:
 you can add more records to your dataset, but keeping this data structure.
 
 you can of course change data structure by changing the `d3viz.js` script, eg by asking d3 to print other keys from the list of records in your dataset json file. review the `d3viz.js` by doing a search-query of any key (eg `b_title_statement_t`) you want to change and see where it’s being used in the script. then replace them with the new keys you want to use.
-
-
