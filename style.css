@@ -62,7 +62,7 @@ h3  {
   padding-right: 1.2em;
   font-family: compagnon;
   font-size: 1rem;
-  overflow:scroll;
+  /* overflow:scroll; */
   max-width: 20em;
 }
 

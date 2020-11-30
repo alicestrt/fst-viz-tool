@@ -320,8 +320,8 @@ if (filename === 'disability') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -331,7 +331,6 @@ if (filename === 'disability') {
 
   //begin tooltip handicaps
       d3.select("#disabilityText7")
-        .style('color', 'red')
         .style('text-decoration', 'line-through')
         .on("mouseover", (d) => {
           tooltip.html(`
@@ -362,8 +361,8 @@ USE [to be filled in] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -404,8 +403,8 @@ USE [to be filled in] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -448,8 +447,8 @@ USE [to be filled in] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -538,8 +537,8 @@ USE [to be filled in] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -585,8 +584,8 @@ USE [to be filled in] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -633,8 +632,8 @@ USE [to be filled in] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -676,8 +675,8 @@ USE [to be filled in] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -688,7 +687,6 @@ USE [to be filled in] (red link)
 
   //begin tooltip lichamelijke_stoornissen
       d3.select("#disabilityText6")
-      .style('color', 'red')
       .style('text-decoration', 'line-through')
         .on("mouseover", (d) => {
           tooltip.html(`
@@ -740,8 +738,8 @@ USE [to be filled] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -787,8 +785,8 @@ USE [to be filled] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -830,8 +828,8 @@ USE <s>auditieve handicaps</s>[to be filled] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -863,8 +861,8 @@ USE <s>auditieve handicaps</s>[to be filled] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -904,8 +902,8 @@ USE <s>auditieve handicaps</s>[to be filled] (red link)
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -985,8 +983,8 @@ if (filename === 'sexuality') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1067,8 +1065,8 @@ if (filename === 'sexuality') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1115,8 +1113,8 @@ if (filename === 'sexuality') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1172,8 +1170,8 @@ if (filename === 'sexuality') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1242,8 +1240,8 @@ if (filename === 'sexuality') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1322,8 +1320,8 @@ if (filename === 'sexuality') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1396,8 +1394,8 @@ if (filename === 'sexuality') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1449,8 +1447,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1492,8 +1490,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1576,8 +1574,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1656,8 +1654,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1736,8 +1734,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1782,8 +1780,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1843,8 +1841,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1891,8 +1889,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -1965,8 +1963,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -2006,8 +2004,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -2085,8 +2083,8 @@ if (filename === 'gender') {
         })
         .on("mousemove", () => {
           return tooltip
-            .style("top", (d3.event.pageY - 10) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
+            .style("top", (d3.event.pageY+15) + "px")
+            .style("left",(d3.event.pageX-170)+"px");
         })
         .on("mouseout", () => {
           return tooltip.style("visibility", "hidden");
@@ -2349,7 +2347,7 @@ if (filename === 'structural-oppression') {
       .style("text-decoration", "line-through")
       .on("mouseover", (d) => {
         tooltip.html(`<div class="tooltipxaxis">
-        validisme
+        USE validisme
       <ul class="searched">
           <li class="titles">Searched for:</li>
           <li><s>discriminatie van gehandicapten: </s> USE validisme - red link</li>
@@ -2543,7 +2541,7 @@ if (filename === 'race') {
 
             // beginning of tooltip vluchtelingen
 
-              d3.select("#raceText10")
+              d3.select("#raceText9")
               .on("mouseover", (d) => {
                 tooltip.html(`
   <div class="tooltipxaxis">
@@ -2580,7 +2578,7 @@ if (filename === 'race') {
 
                 // beginning of tooltip racisme
 
-                  d3.select("#raceText4")
+                  d3.select("#raceText6")
                   .on("mouseover", (d) => {
                     tooltip.html(`
                       <div class="tooltipxaxis">
@@ -2664,7 +2662,7 @@ if (filename === 'race') {
 
                         // beginning of tooltip migranten
 
-                          d3.select("#raceText6")
+                          d3.select("#raceText4")
                           .on("mouseover", (d) => {
                             tooltip.html(`
                               <div class="tooltipxaxis">
@@ -2705,7 +2703,7 @@ if (filename === 'race') {
 
                             // beginning of tooltip inheemse volken
 
-                              d3.select("#raceText7")
+                              d3.select("#raceText11")
                               .on("mouseover", (d) => {
                                 tooltip.html(`
 
@@ -2748,7 +2746,7 @@ if (filename === 'race') {
 
                                 // beginning of tooltip culturen
 
-                                  d3.select("#raceText8")
+                                  d3.select("#raceText7")
                                   .on("mouseover", (d) => {
                                     tooltip.html(`
                                       <div class="tooltipxaxis">
@@ -2787,7 +2785,7 @@ if (filename === 'race') {
                                     // end of tooltip culturen
                                     // beginning of tooltip etnische studies
 
-                                      d3.select("#raceText9")
+                                      d3.select("#raceText8")
                                       .on("mouseover", (d) => {
                                         tooltip.html(`
                                           <div class="tooltipxaxis">
@@ -2822,7 +2820,7 @@ if (filename === 'race') {
 
                                         // beginning of tooltip blanken
 
-                                          d3.select("#raceText1")
+                                          d3.select("#raceText2")
                                           .style('text-decoration', 'line-through')
                                           .on("mouseover", (d) => {
                                             tooltip.html(`
@@ -2851,7 +2849,7 @@ if (filename === 'race') {
 
                                             // beginning of tooltip institutionele segregatie
 
-                                              d3.select("#raceText2")
+                                              d3.select("#raceText1")
                                               .style('text-decoration', 'line-through')
                                               .on("mouseover", (d) => {
                                                 tooltip.html(`
