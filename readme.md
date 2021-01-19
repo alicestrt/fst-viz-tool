@@ -27,6 +27,7 @@ The intersection between a publisher and a certain term on the x axis, on hover 
 *Intersectionality:*
 
 Each cluster has it's own color. To highlight intersectionality we also searched for books that have descriptions belonging to two different clusters - these are made visible through the use of these colors
+
 ## usage
 
 we need a local server in order to open `index.html` and avoid nasty [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors) errors ([ref](https://stackoverflow.com/a/27986564))
@@ -65,7 +66,7 @@ the visualization tool should be loading fine!
 
 ### import-data
 
-use `import-data.py` to create subset of data from the main dataset.
+use `import-data.py` to create subset of data from the main dataset. for the original dataset used in the project, contact the developers.
 
 the command takes two arguments:
 
@@ -82,7 +83,7 @@ eg
 python import-data.py ./data/dataset_selection.json sexuality
 ```
 
-this will automatically output the new sub-dataset to the `./data/` folder, using the `topic` argument to save the file. with the example above, the file will be saved as `dataset_sexuality.json`.
+this will automatically output the new sub-dataset to the `./data/` folder, using the `topic` argument to save the file. with the example above, the file will be saved as `dataset_sexuality.json`. do this for every topic available.
 
 ## setup
 
@@ -106,6 +107,8 @@ each record in the `json` array *needs* to follow this structure:
     "Example publisher",
   "description":
     "Example description",
+  "description_second":
+    "Example extra description",
   "other_descriptions":
     ["example1", "example2", "example3"]
 },
