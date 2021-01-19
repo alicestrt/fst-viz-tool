@@ -7,17 +7,16 @@ The visualisation tool was developed further by Alice Strete and Angeliki Diakro
 
 The tool is built using [D3 js] (https://d3js.org/).
 
-### version December 2020
 *Clusters:*
 
-After long discussion we had with fst we decided to create specific clusters of terms, represented in different x-axes, that would help us have a situated perspective on the collection and see what books reflect the questions we addressed in our discussions - for example how much are race and disability reflected in the collection.  We wanted to challenge the categorization of books in public library structures and the lack of opportunities to intervene in these categories. These standard categorization systems are often institutional and carry biases. They also restrict the intersectionality and flexibility of the character or potential identities of books. 
+After long discussion we had with fst we decided to create specific clusters of terms, represented in different x-axes, that would help us have a situated perspective on the collection and see what books reflect the questions we addressed in our discussions - for example how much are race and disability reflected in the collection.  We wanted to challenge the categorization of books in public library structures and the lack of opportunities to intervene in these categories. These standard categorization systems are often institutional and carry biases. They also restrict the intersectionality and flexibility of the character or potential identities of books.
 
-*Hovers on axis terms:* 
+*Hovers on axis terms:*
 
 When hovering on the terms you can see more information about each term
 Interventions from FST, context from homosaurus, related terms that are not necessarily connected in homosaurus, terms we would like to change depending on preferred terms in society, terms that are not currently part of the descriptions, and even expanding the meaning of a term.
 
-*Red links:* 
+*Red links:*
 
 Terms that don't exist in the current categories but are proposed as potential new categories (they don't have any books) - highlighted in red
 
@@ -28,7 +27,6 @@ The intersection between a publisher and a certain term on the x axis, on hover 
 *Intersectionality:*
 
 Each cluster has it's own color. To highlight intersectionality we also searched for books that have descriptions belonging to two different clusters - these are made visible through the use of these colors
-
 ## usage
 
 we need a local server in order to open `index.html` and avoid nasty [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors) errors ([ref](https://stackoverflow.com/a/27986564))
@@ -100,17 +98,16 @@ each record in the `json` array *needs* to follow this structure:
 
 ```
 {
-  "b_title_statement_t": [
-    "issues of gender, 'race', sexuality, disability and social class /"
-  ],
-  "a_title_statement_t": [
-    "Education, equality and human rights :"
-  ],
-  "b_imprint_s": "Routledge,",
-  "title_statement_t": [
-    "Education, equality and human rights : issues of gender, 'race', sexuality, disability and social class / edited by Mike Cole."
-  ],
-  "keywords": "gender, social class, race"
+  "title":
+    "Example title",
+  "author":
+    "Example author",
+  "publisher":
+    "Example publisher",
+  "description":
+    "Example description",
+  "other_descriptions":
+    ["example1", "example2", "example3"]
 },
 ```
 
