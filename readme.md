@@ -78,20 +78,20 @@ each record in the `json` array *needs* to follow this structure:
 
 ```
 {
-  "b_title_statement_t": [
-    "issues of gender, 'race', sexuality, disability and social class /"
-  ],
-  "a_title_statement_t": [
-    "Education, equality and human rights :"
-  ],
-  "b_imprint_s": "Routledge,",
-  "title_statement_t": [
-    "Education, equality and human rights : issues of gender, 'race', sexuality, disability and social class / edited by Mike Cole."
-  ],
-  "keywords": "gender, social class, race"
+  "author": 
+    "XYZ",
+  "title": 
+    "Example title",
+  "publisher": 
+    "Example publisher",
+  "description": 
+    "sexuality",
+  "other_descriptions": [
+    "gender", "social class", "race"
+    ]
 },
 ```
 
 you can add more records to your dataset, but keeping this data structure.
 
-you can of course change data structure by changing the `d3viz.js` script, eg by asking d3 to print other keys from the list of records in your dataset json file. review the `d3viz.js` by doing a search-query of any key (eg `b_title_statement_t`) you want to change and see where it’s being used in the script. then replace them with the new keys you want to use.
+you can of course change data structure by changing the `d3viz.js` script, eg by asking d3 to print other keys from the list of records in your dataset json file. review the `d3viz.js` by doing a search-query of any key (eg `free_descriptors`) you want to change and see where it’s being used in the script. then replace them with the new keys you want to use.
